@@ -58,7 +58,7 @@
             z-index: 0; pointer-events: none; opacity: 0.4;
         }
 
-        /* 🚀 NEW: MAGIC GLITTER LINE CURSOR TRAIL 🚀 */
+        /* 🚀 MAGIC GLITTER LINE CURSOR TRAIL 🚀 */
         #glitter-canvas {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: 9997; pointer-events: none; mix-blend-mode: screen;
@@ -201,27 +201,45 @@
         .exp-desc { font-size: 1.15rem; line-height: 1.8; color: #99a; margin-top: 1rem;}
         .exp-desc strong { color: #fff; border-bottom: 1px solid var(--accent); }
 
-        /* 🚀 UPDATED: MUCH LARGER FLOATING BRAND LOGOS 🚀 */
+        /* 🚀 UPDATED: WIDE RECTANGLE BRAND LOGOS SO THEY LOOK MASSIVE 🚀 */
         .floating-brands { display: flex; gap: 25px; perspective: 1000px; padding-top: 10px; }
         
         .brand-float { 
-            width: 130px; /* Increased from 80px to 130px */
-            height: 130px; /* Increased from 80px to 130px */
-            border-radius: 20px; 
+            width: 180px; /* Wide rectangle to fit horizontal logos properly */
+            height: 75px; /* Sleek height */
+            border-radius: 16px; 
             background: rgba(0, 229, 255, 0.05); 
             border: 1px solid rgba(0, 229, 255, 0.2); 
             display: flex; align-items: center; justify-content: center; 
             text-decoration: none; transform-style: preserve-3d; transition: all 0.3s ease; 
             box-shadow: 0 10px 20px rgba(0, 229, 255, 0.1), inset 0 0 10px rgba(0,229,255,0.1); 
-            padding: 15px; /* Increased padding slightly */
+            padding: 5px 15px; 
         }
         
-        .brand-float img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5)); transition: transform 0.3s ease, filter 0.3s ease; }
+        .brand-float img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5)); 
+            transition: transform 0.3s ease, filter 0.3s ease; 
+            transform: scale(1.25); /* Forces the logo to stretch out and look BIG */
+        }
+
         .brand-float.float-1 { animation: float3D 4s ease-in-out infinite; }
         .brand-float.float-2 { animation: float3D 5s ease-in-out infinite 2s; }
-        @keyframes float3D { 0% { transform: translateY(0) rotateX(0deg) rotateY(0deg); } 50% { transform: translateY(-15px) rotateX(10deg) rotateY(-10deg); box-shadow: 0 20px 30px rgba(0, 229, 255, 0.2), inset 0 0 20px rgba(0,229,255,0.2); } 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); } }
-        .brand-float:hover { background: rgba(0, 229, 255, 0.15); transform: scale(1.1) translateY(-5px) !important; box-shadow: 0 15px 40px rgba(0, 229, 255, 0.4); border-color: rgba(0, 229, 255, 0.6); animation-play-state: paused; }
-        .brand-float:hover img { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8)) brightness(1.2); }
+        @keyframes float3D { 0% { transform: translateY(0) rotateX(0deg) rotateY(0deg); } 50% { transform: translateY(-10px) rotateX(8deg) rotateY(-8deg); box-shadow: 0 15px 25px rgba(0, 229, 255, 0.2), inset 0 0 15px rgba(0,229,255,0.2); } 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); } }
+        
+        .brand-float:hover { 
+            background: rgba(0, 229, 255, 0.15); 
+            transform: scale(1.05) translateY(-5px) !important; 
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.4); 
+            border-color: rgba(0, 229, 255, 0.6); 
+            animation-play-state: paused; 
+        }
+        .brand-float:hover img { 
+            transform: scale(1.4); /* Expands further on hover */
+            filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8)) brightness(1.2); 
+        }
 
         /* === BENTO GRID SECTION === */
         .bento-container { padding: 8rem 5vw; max-width: 1400px; margin: 0 auto; position: relative; z-index: 5; }
@@ -335,6 +353,7 @@
                                 <div class="exp-title">Social Media Manager & Strategist</div>
                                 <div class="exp-company">eSamparkTech Solutions & MEDH</div>
                             </div>
+                            <!-- FIXED OVERSIZED LOGOS -->
                             <div class="floating-brands">
                                 <a href="https://esampark.biz/" target="_blank" class="brand-float float-1" title="Visit eSampark">
                                     <img src="esampark-logo.png" alt="eSampark Logo">
@@ -563,11 +582,9 @@
 
         class GlitterParticle {
             constructor(x, y) {
-                // Precise spawn point to create a clean line trail
                 this.x = x + (Math.random() * 4 - 2);
                 this.y = y + (Math.random() * 4 - 2);
                 this.size = Math.random() * 2 + 1.5; 
-                // Very little movement, just fades out forming a trail
                 this.speedX = Math.random() * 0.5 - 0.25; 
                 this.speedY = Math.random() * 0.5 - 0.25;
                 this.color = '#00e5ff'; 
@@ -575,7 +592,7 @@
             }
             update() {
                 this.x += this.speedX; this.y += this.speedY;
-                this.life -= 4; // Fast fade for a cool comet trail
+                this.life -= 4; 
                 if (this.size > 0.1) this.size -= 0.05; 
             }
             draw() {
@@ -587,7 +604,6 @@
             }
         }
 
-        // Spawn particles directly on cursor movement
         window.addEventListener('mousemove', (e) => {
             for (let i = 0; i < 2; i++) { 
                 glitterArray.push(new GlitterParticle(e.clientX, e.clientY));
