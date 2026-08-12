@@ -201,8 +201,21 @@
         .exp-desc { font-size: 1.15rem; line-height: 1.8; color: #99a; margin-top: 1rem;}
         .exp-desc strong { color: #fff; border-bottom: 1px solid var(--accent); }
 
-        .floating-brands { display: flex; gap: 20px; perspective: 1000px; padding-top: 10px; }
-        .brand-float { width: 80px; height: 80px; border-radius: 16px; background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); display: flex; align-items: center; justify-content: center; text-decoration: none; transform-style: preserve-3d; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0, 229, 255, 0.1), inset 0 0 10px rgba(0,229,255,0.1); padding: 10px; }
+        /* 🚀 UPDATED: MUCH LARGER FLOATING BRAND LOGOS 🚀 */
+        .floating-brands { display: flex; gap: 25px; perspective: 1000px; padding-top: 10px; }
+        
+        .brand-float { 
+            width: 130px; /* Increased from 80px to 130px */
+            height: 130px; /* Increased from 80px to 130px */
+            border-radius: 20px; 
+            background: rgba(0, 229, 255, 0.05); 
+            border: 1px solid rgba(0, 229, 255, 0.2); 
+            display: flex; align-items: center; justify-content: center; 
+            text-decoration: none; transform-style: preserve-3d; transition: all 0.3s ease; 
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.1), inset 0 0 10px rgba(0,229,255,0.1); 
+            padding: 15px; /* Increased padding slightly */
+        }
+        
         .brand-float img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5)); transition: transform 0.3s ease, filter 0.3s ease; }
         .brand-float.float-1 { animation: float3D 4s ease-in-out infinite; }
         .brand-float.float-2 { animation: float3D 5s ease-in-out infinite 2s; }
