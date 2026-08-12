@@ -3,423 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Epic Door Pull Animation</title>
+    <title>My Website Intro</title>
     <style>
-        /* =========================================
-           1. GLOBAL RESET & BASE STYLES
-        ========================================= */
+        /* === RESET & BASIC STYLES === */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         body, html {
-            background-color: #030303;
-            color: #ffffff;
+            background-color: #050505;
+            color: white;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Hide scrollbar for a cleaner cinematic look */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #0ff; border-radius: 10px; }
-
-        /* =========================================
-           2. THUNDERBOLT INTRO SCREEN
-        ========================================= */
+        /* === 1. THUNDERBOLT INTRO SCREEN === */
         #thunder-intro {
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            background: #000;
+            background: black;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 99999;
-            /* 3-second lifecycle */
+            z-index: 9999;
             animation: thunderFlash 3s forwards;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.8s ease, visibility 0.8s;
         }
-        .thunder-text {
-            font-size: 5vw;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+        .glitch-text {
+            font-size: 4rem;
+            font-weight: bold;
             color: #fff;
-            position: relative;
-            text-shadow: 0 0 10px #0ff, 0 0 30px #0ff, 0 0 50px #0055ff;
-            animation: glitch 0.15s infinite;
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+            animation: textTremble 0.2s infinite;
         }
 
         @keyframes thunderFlash {
             0% { background: #000; }
-            5% { background: #e0f7fa; }
+            5% { background: #fff; }
             10% { background: #000; }
-            15% { background: #fff; box-shadow: inset 0 0 100px #0ff; }
-            20% { background: #000; }
-            60% { background: #000; }
-            62% { background: #fff; }
-            65% { background: #000; }
+            12% { background: #fff; }
+            15% { background: #000; }
+            50% { background: #000; }
+            52% { background: #fff; }
+            55% { background: #000; }
             100% { background: #000; }
         }
-        @keyframes glitch {
-            0% { transform: translate(2px, 2px); }
-            50% { transform: translate(-2px, -2px); }
-            100% { transform: translate(2px, -2px); }
+        @keyframes textTremble {
+            0% { transform: translate(1px, 1px) }
+            50% { transform: translate(-1px, -1px) }
+            100% { transform: translate(1px, 1px) }
         }
 
-        /* =========================================
-           3. WELCOME SECTION
-        ========================================= */
+        /* === 2. SCROLL SECTION (Welcome to My World) === */
         .welcome-section {
-            position: relative;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            position: relative;
             z-index: 10;
         }
         .welcome-section h1 {
-            font-size: 6vw;
-            font-weight: 800;
-            background: linear-gradient(90deg, #fff, #0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            margin-bottom: 30px;
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+        }
+        .scroll-indicator {
+            font-size: 1.5rem;
+            color: #0ff;
+            animation: bounce 1.5s infinite;
             letter-spacing: 2px;
         }
-        .scroll-down {
-            position: absolute;
-            bottom: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            color: #0ff;
-            font-weight: bold;
-            letter-spacing: 3px;
-            animation: pulse 2s infinite;
-        }
-        .scroll-down .arrow {
-            width: 20px;
-            height: 20px;
-            border-bottom: 3px solid #0ff;
-            border-right: 3px solid #0ff;
-            transform: rotate(45deg);
-            animation: arrowMove 1.5s infinite;
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(15px); }
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; text-shadow: 0 0 10px #0ff; }
-        }
-        @keyframes arrowMove {
-            0% { transform: translateY(0) rotate(45deg); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(15px) rotate(45deg); opacity: 0; }
-        }
-
-        /* =========================================
-           4. DOOR ANIMATION CONTAINER
-        ========================================= */
-        .door-container {
+        /* === 3. THE DOOR ANIMATION SECTION === */
+        .door-wrapper {
             position: relative;
             width: 100vw;
             height: 100vh;
             overflow: hidden;
-            perspective: 1200px; /* For 3D opening effect */
-            background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop') center/cover no-repeat;
+            background-color: #ffffff; /* Tumhari actual website ka background color */
         }
         
-        /* The glow behind the doors */
-        .door-container::before {
-            content: '';
+        /* The Content Inside The Room (TUMHARI WEBSITE YAHA AAYEGI) */
+        .inside-world {
             position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px; height: 100%;
-            background: #0ff;
-            filter: blur(100px);
-            opacity: 0;
-            transition: opacity 1s;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #000; /* Dark text for light background */
             z-index: 1;
         }
-        .door-container.pull::before {
-            opacity: 0.8;
+        .inside-world h2 {
+            font-size: 4rem;
+            color: #003366; /* Corporate blue */
+            margin-bottom: 10px;
+        }
+        .inside-world p {
+            font-size: 1.2rem;
+            color: #555;
+            font-weight: bold;
         }
 
-        /* Inside Content (Revealed after opening) */
-        .inside-content {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            text-align: center;
-            z-index: 2;
-            opacity: 0;
-            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
-        }
-        .inside-content h2 {
-            font-size: 5vw;
-            text-transform: uppercase;
-            color: #fff;
-            text-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
-            margin-bottom: 20px;
-        }
-        .inside-content p {
-            font-size: 1.5vw;
-            color: #ccc;
-            letter-spacing: 2px;
-        }
-        
-        .door-container.pull .inside-content {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-
-        /* =========================================
-           5. THE DOORS (Sci-Fi Metallic Texture)
-        ========================================= */
+        /* The Doors */
         .door {
             position: absolute;
             top: 0;
-            width: 50vw;
-            height: 100vh;
-            background: repeating-linear-gradient(
-                90deg,
-                #111,
-                #111 10px,
-                #1a1a1a 10px,
-                #1a1a1a 20px
-            );
-            z-index: 10;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
-            transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #111, #222);
+            z-index: 5;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+            transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
             display: flex;
             align-items: center;
         }
-        
         .door-left {
             left: 0;
-            border-right: 4px solid #0ff;
-            box-shadow: 10px 0 30px rgba(0, 255, 255, 0.5);
+            border-right: 2px solid #0ff;
+            box-shadow: 5px 0 15px rgba(0, 255, 255, 0.3);
             transform-origin: left;
         }
-        
         .door-right {
             right: 0;
-            border-left: 4px solid #0ff;
-            box-shadow: -10px 0 30px rgba(0, 255, 255, 0.5);
+            border-left: 2px solid #0ff;
+            box-shadow: -5px 0 15px rgba(0, 255, 255, 0.3);
             transform-origin: right;
         }
 
-        /* =========================================
-           6. THE CYBER HANDS
-        ========================================= */
-        .hand-wrapper {
+        /* The Simple Hands */
+        .hand {
             position: absolute;
-            top: 150vh; /* Hidden off-screen initially */
-            width: 50px;
-            height: 120px;
-            transition: top 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 20;
-        }
-
-        /* Position the wrappers on the very edges of the doors */
-        .door-left .hand-wrapper { right: -25px; }
-        .door-right .hand-wrapper { left: -25px; }
-
-        /* The glowing claw/hand design */
-        .cyber-hand {
-            position: relative;
-            width: 100%;
-            height: 100%;
+            top: 120vh; /* Hidden below initially */
+            width: 30px;
+            height: 80px;
             background: #0ff;
             border-radius: 10px;
-            box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, inset 0 0 10px #fff;
+            box-shadow: 0 0 20px #0ff;
+            transition: top 0.6s ease-out; /* Slide up speed */
+            z-index: 10;
         }
         
-        /* Fingers gripping the edge */
-        .cyber-hand::before, .cyber-hand::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 15px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 0 10px #0ff;
-            transition: width 0.3s ease;
-        }
-        .cyber-hand::before { top: 20px; left: 5px; }
-        .cyber-hand::after { bottom: 20px; left: 5px; }
+        .door-left .hand { right: -15px; }
+        .door-right .hand { left: -15px; }
 
-        /* Right hand fingers need to point the other way */
-        .door-right .cyber-hand::before, 
-        .door-right .cyber-hand::after {
-            left: auto; right: 5px;
-        }
-
-        /* =========================================
-           7. ANIMATION STATES (Triggered by JS)
-        ========================================= */
-        
-        /* STATE 1: Hands slide up to grab */
-        .door-container.grab .hand-wrapper {
-            top: 50%;
+        /* === ANIMATION CLASSES === */
+        .door-wrapper.grab .hand {
+            top: 50%; 
             transform: translateY(-50%);
         }
-
-        /* STATE 2: Fingers tighten grip */
-        .door-container.tighten .cyber-hand::before,
-        .door-container.tighten .cyber-hand::after {
-            width: 60px; /* Fingers wrap around tighter */
+        .door-wrapper.pull .door-left {
+            transform: translateX(-100%);
         }
-
-        /* Camera Shake Effect just before pull */
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px) rotate(-1deg); }
-            50% { transform: translateX(5px) rotate(1deg); }
-            75% { transform: translateX(-5px) rotate(-1deg); }
-            100% { transform: translateX(0); }
-        }
-        .door-container.shake {
-            animation: shake 0.4s ease-in-out;
-        }
-
-        /* STATE 3: The Epic Pull */
-        .door-container.pull .door-left {
-            transform: rotateY(70deg) translateX(-50vw);
-            opacity: 0.2;
-        }
-        .door-container.pull .door-right {
-            transform: rotateY(-70deg) translateX(50vw);
-            opacity: 0.2;
-        }
-
-        /* Footer space to allow scrolling */
-        .spacer {
-            height: 50vh;
-            background: #030303;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #333;
+        .door-wrapper.pull .door-right {
+            transform: translateX(100%);
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. THUNDER INTRO -->
+    <!-- THUNDER INTRO -->
     <div id="thunder-intro">
-        <h1 class="thunder-text">Ready for something unique?</h1>
+        <h1 class="glitch-text">Glad you are here</h1>
     </div>
 
-    <!-- 2. WELCOME SECTION -->
+    <!-- WELCOME SECTION -->
     <div class="welcome-section">
         <h1>Welcome to My World</h1>
-        <div class="scroll-down">
-            <span>SCROLL TO ENTER</span>
-            <div class="arrow"></div>
-            <div class="arrow" style="animation-delay: 0.2s"></div>
-        </div>
+        <div class="scroll-indicator">SCROLL DOWN <span>▼</span></div>
     </div>
 
-    <!-- 3. DOOR ANIMATION SECTION -->
-    <div class="door-container" id="door-section">
+    <!-- DOOR SECTION & WEBSITE CONTENT -->
+    <div class="door-wrapper" id="door-section">
         
-        <!-- Content revealed after pulling doors -->
-        <div class="inside-content">
-            <h2>Experience The Future</h2>
-            <p>Where logic meets pure imagination.</p>
+        <!-- Yaha se tumhari website shuru hogi -->
+        <div class="inside-world">
+            <h2>esampark.biz</h2>
+            <p>Private Corporate Platform</p>
+            <br>
+            <p style="color: #888; font-size: 1rem;">(Bhai yaha par tu apni website ka code ya iframe daal dena)</p>
         </div>
 
-        <!-- Left Door -->
+        <!-- Left Door & Hand -->
         <div class="door door-left">
-            <div class="hand-wrapper">
-                <div class="cyber-hand"></div>
-            </div>
+            <div class="hand"></div>
         </div>
 
-        <!-- Right Door -->
+        <!-- Right Door & Hand -->
         <div class="door door-right">
-            <div class="hand-wrapper">
-                <div class="cyber-hand"></div>
-            </div>
+            <div class="hand"></div>
         </div>
 
     </div>
 
-    <!-- Spacer -->
-    <div class="spacer">
-        <p>End of Sequence</p>
-    </div>
+    <!-- Extra space so user can scroll down into your actual website -->
+    <div style="height: 100vh; background: #ffffff;"></div>
 
-    <!-- =========================================
-         JAVASCRIPT LOGIC
-    ========================================= -->
     <script>
-        // 1. Remove Thunder Intro after exactly 3 Seconds
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const intro = document.getElementById('thunder-intro');
-                intro.style.opacity = '0';
-                setTimeout(() => {
-                    intro.style.display = 'none';
-                    // Allow scrolling only after intro is done
-                    document.body.style.overflowY = 'auto'; 
-                }, 500); // Wait for fade out
-            }, 3000);
-            
-            // Lock scrolling during intro
-            document.body.style.overflowY = 'hidden'; 
-        });
+        // 1. Remove Thunder Screen after 3 Seconds
+        setTimeout(() => {
+            const intro = document.getElementById('thunder-intro');
+            intro.style.opacity = '0';
+            intro.style.visibility = 'hidden';
+            setTimeout(() => intro.remove(), 800); 
+        }, 3000);
 
-        // 2. Scroll Animation Trigger for the Doors
+        // 2. Door Open Animation on Scroll
         const doorSection = document.getElementById('door-section');
         
-        // Setup Intersection Observer to trigger when door is in view
-        const observerOptions = {
-            root: null,
-            threshold: 0.6 // Triggers when 60% of the door section is visible
-        };
-
-        const doorObserver = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     
-                    // SEQUENCE TIMELINE:
-                    
-                    // Step 1: Hands slide up to grab the edge
+                    // Hath pakdenge
                     doorSection.classList.add('grab');
 
-                    // Step 2: Fingers visually tighten grip (after hands arrive)
+                    // 0.8 sec baad darwaza khulega aur website dikhegi
                     setTimeout(() => {
-                        doorSection.classList.add('tighten');
+                        doorSection.classList.add('pull');
                     }, 800);
 
-                    // Step 3: Screen shakes slightly simulating massive force
-                    setTimeout(() => {
-                        doorSection.classList.add('shake');
-                    }, 1200);
-
-                    // Step 4: DOORS RIP OPEN!
-                    setTimeout(() => {
-                        doorSection.classList.remove('shake');
-                        doorSection.classList.add('pull');
-                    }, 1600);
-
-                    // Stop observing once animation runs
                     observer.unobserve(doorSection);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.6 }); 
 
-        doorObserver.observe(doorSection);
+        observer.observe(doorSection);
     </script>
 
 </body>
