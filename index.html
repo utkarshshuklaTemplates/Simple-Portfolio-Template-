@@ -83,126 +83,90 @@
         .scroll-down-indicator { position: absolute; bottom: 40px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; display: flex; flex-direction: column; align-items: center; gap: 15px; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 600; text-shadow: 0 0 10px #000; }
         .scroll-line { width: 2px; height: 50px; background: rgba(0, 229, 255, 0.2); position: relative; overflow: hidden; border-radius: 2px; }
         .scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--accent); animation: scrollDown 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite; box-shadow: 0 0 10px var(--accent); }
-        @keyframes scrollDown { 0% { top: -100%; } 100% { top: 100%; } }
 
-        /* =======================================
-           DOOR 1: GATES OF HEAVEN (HERO) 
-        ======================================= */
+        /* === DOORS STYLING === */
         .door-heaven .gate { width: 50vw; height: 100%; background: #010205; position: relative; display: flex; align-items: center; box-shadow: 0 0 50px rgba(0, 229, 255, 0.1); pointer-events: auto; }
         .door-heaven .gate-left { justify-content: flex-end; border-right: 2px solid var(--accent); box-shadow: 20px 0 100px rgba(0,229,255,0.15); }
         .door-heaven .gate-right { justify-content: flex-start; border-left: 2px solid var(--accent); box-shadow: -20px 0 100px rgba(0,229,255,0.15); }
         .gate-arch { width: 300px; height: 80vh; border: 2px solid rgba(0,229,255,0.5); box-shadow: 0 0 40px rgba(0,229,255,0.3), inset 0 0 30px rgba(0,229,255,0.2); }
         .gate-left .gate-arch { border-right: none; border-radius: 500px 0 0 500px; margin-right: 10px; }
         .gate-right .gate-arch { border-left: none; border-radius: 0 500px 500px 0; margin-left: 10px; }
-        @media (max-width: 768px) { .gate-arch { width: 150px; height: 60vh; } }
-
-        /* =======================================
-           DOOR 2: INDUSTRIAL SHUTTER (ABOUT) 
-        ======================================= */
+        
         .door-shutter { flex-direction: column; }
-        .door-shutter .shutter-panel { width: 100vw; height: 50vh; background: repeating-linear-gradient(180deg, #050810, #050810 10px, #0a0f1d 10px, #0a0f1d 20px); pointer-events: auto; position: relative; display: flex; align-items: center; justify-content: center; }
+        .door-shutter .shutter-panel { width: 100vw; height: 50vh; background: repeating-linear-gradient(180deg, #050810, #050810 10px, #0a0f1d 10px, #0a0f1d 20px); pointer-events: auto; position: relative; }
         .shutter-top { border-bottom: 5px solid var(--accent); box-shadow: 0 10px 50px rgba(0,229,255,0.2); }
         .shutter-bottom { border-top: 5px solid var(--accent); box-shadow: 0 -10px 50px rgba(0,229,255,0.2); }
-        /* Metallic Handles */
-        .shutter-top::after { content:''; position:absolute; bottom: 10px; width: 200px; height: 10px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
-        .shutter-bottom::after { content:''; position:absolute; top: 10px; width: 200px; height: 10px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
+        .shutter-top::after { content:''; position:absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 200px; height: 10px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
+        .shutter-bottom::after { content:''; position:absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 200px; height: 10px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
 
-        /* =======================================
-           DOOR 3: CYBER BLAST DOORS (EXPERIENCE)
-        ======================================= */
         .door-blast { display: flex; }
         .door-blast .blast-panel { width: 50vw; height: 100vh; background: #03050a; position: relative; display: flex; align-items: center; pointer-events: auto; }
         .blast-left { justify-content: flex-end; border-right: 10px solid #222; }
         .blast-right { justify-content: flex-start; border-left: 10px solid #222; }
-        /* Caution Stripes */
         .blast-left::before { content:''; position:absolute; right:0; top:0; height:100%; width:40px; background: repeating-linear-gradient(45deg, #000, #000 20px, var(--accent) 20px, var(--accent) 40px); opacity: 0.8;}
         .blast-right::before { content:''; position:absolute; left:0; top:0; height:100%; width:40px; background: repeating-linear-gradient(-45deg, #000, #000 20px, var(--accent) 20px, var(--accent) 40px); opacity: 0.8;}
 
-        /* =======================================
-           DOOR 4: THE VAULT (ARSENAL)
-        ======================================= */
         .door-vault { display: flex; justify-content: center; align-items: center; }
         .door-vault .vault-panel { position: absolute; top:0; width: 50vw; height: 100vh; background: radial-gradient(circle at center, #111, #000); pointer-events: auto; }
         .vault-left { left: 0; border-right: 3px dashed var(--accent); }
         .vault-right { right: 0; border-left: 3px dashed var(--accent); }
-        .vault-wheel { position: absolute; width: 250px; height: 250px; border-radius: 50%; border: 15px solid #222; background: #050505; z-index: 55; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 0 20px var(--accent); }
+        .vault-wheel { position: absolute; width: 250px; height: 250px; border-radius: 50%; border: 15px solid #222; background: #050505; z-index: 55; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 0 20px var(--accent); pointer-events: auto; }
         .vault-wheel::before { content:''; position:absolute; width: 90%; height: 90%; border-radius: 50%; border: 4px dashed var(--accent); animation: spin 10s linear infinite; }
         .vault-wheel i { font-size: 5rem; color: var(--accent); text-shadow: 0 0 20px var(--accent); }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
         /* === INTERNAL SECTION CONTENTS === */
         
-        /* 1. HERO CONTENT */
+        /* HERO CONTENT */
         .hero { height: 100vh; width: 100vw; position: absolute; top:0; left:0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; }
         .text-utkarsh { position: absolute; top: 15%; width: 100%; text-align: center; font-family: 'Anton', sans-serif; font-size: 22vw; line-height: 0.8; color: #ffffff; z-index: 1; text-transform: uppercase; letter-spacing: -2px; opacity: 0; }
         .hero-image-box { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.2); width: 320px; height: 480px; z-index: 2; border-radius: 12px; border: 2px solid var(--accent); box-shadow: 0 0 80px rgba(0, 229, 255, 0.6), inset 0 0 30px rgba(0, 229, 255, 0.3); display: flex; align-items: flex-end; justify-content: center; opacity: 0; filter: brightness(3) blur(20px); }
         .hero-image-box img.holographic-cutout { position: absolute; bottom: 0; left: 50%; width: 140%; height: auto; object-fit: cover; z-index: 5; transform: translateX(-50%); filter: drop-shadow(0 -10px 30px rgba(0, 229, 255, 0.5)); }
         .text-shukla { position: absolute; bottom: 10%; width: 100%; text-align: center; font-family: 'Anton', sans-serif; font-size: 22vw; line-height: 0.8; color: var(--accent); z-index: 3; text-transform: uppercase; letter-spacing: -2px; opacity: 0; background: linear-gradient(180deg, #00ffff 0%, #0088ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-subtitle-badge { position: absolute; bottom: 25%; z-index: 10; background: var(--accent); color: #000; font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(1rem, 2vw, 1.5rem); letter-spacing: 6px; padding: 15px 40px; border-radius: 50px; opacity: 0; animation: badgeFloat 3s ease-in-out infinite alternate; }
-        @keyframes badgeFloat { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-10px) scale(1.05); } }
+        .hero-subtitle-badge { position: absolute; bottom: 25%; z-index: 10; background: var(--accent); color: #000; font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(0.8rem, 1.5vw, 1.2rem); letter-spacing: 4px; padding: 15px 40px; border-radius: 50px; opacity: 0; animation: badgeFloat 3s ease-in-out infinite alternate; text-align: center;}
 
-        /* 2. ABOUT CONTENT */
+        /* ABOUT CONTENT */
         .about-content { width: 100%; height: 100vh; padding: 10rem 10vw; display: flex; flex-direction: column; justify-content: center; position: absolute; top:0; left:0; z-index: 10; background: #030610; }
         .section-tag { font-family: 'Anton', sans-serif; font-size: 1.2rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
         .section-tag::before { content: ''; display: inline-block; width: 40px; height: 2px; background: var(--accent); }
-        .about-text { font-size: clamp(1.5rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.4; color: #fff; max-width: 1400px; }
+        .about-text { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.5; color: #fff; max-width: 1400px; }
         .about-text span { color: #445; transition: color 0.5s ease; }
         .about-highlight { color: var(--text) !important; text-shadow: 0 0 20px rgba(0, 229, 255, 0.5); }
 
-        /* 3. EXPERIENCE CONTENT (Horizontal) */
+        /* EXPERIENCE CONTENT (Horizontal) */
         .horizontal-wrapper { display: flex; width: 400vw; height: 100vh; position: absolute; top:0; left:0; z-index: 10; background: #010205; }
         .panel { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 5vw; }
-        .exp-card { background: var(--glass); border: 1px solid var(--border); padding: 4rem; border-radius: 24px; width: 100%; max-width: 1000px; backdrop-filter: blur(15px); display: flex; flex-direction: column; gap: 1.5rem; position: relative; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
+        .exp-card { background: var(--glass); border: 1px solid var(--border); padding: 3rem; border-radius: 24px; width: 100%; max-width: 1000px; backdrop-filter: blur(15px); display: flex; flex-direction: column; gap: 1rem; position: relative; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
         .card-top-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; }
         .exp-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--accent), transparent); }
-        .exp-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: -1rem; text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);}
-        .exp-year { color: #556; font-family: 'Anton', sans-serif; font-size: 3.5rem; line-height: 1; }
-        .exp-title { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; color: #fff; }
-        .exp-company { font-size: 1.2rem; color: var(--accent); font-weight: 600; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 1px;}
-        .exp-desc { font-size: 1.15rem; line-height: 1.8; color: #99a; margin-top: 1rem;}
+        .exp-icon { font-size: 3rem; color: var(--accent); margin-bottom: -0.5rem; text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);}
+        .exp-year { color: #556; font-family: 'Anton', sans-serif; font-size: 2.5rem; line-height: 1.2; }
+        .exp-title { font-size: 2rem; font-weight: 800; letter-spacing: -1px; color: #fff; }
+        .exp-company { font-size: 1.1rem; color: var(--accent); font-weight: 600; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 1px;}
+        .exp-desc { font-size: 1.05rem; line-height: 1.6; color: #99a; margin-top: 1rem;}
+        .exp-desc ul { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
         .exp-desc strong { color: #fff; border-bottom: 1px solid var(--accent); }
         
-        .floating-brands { display: flex; gap: 40px; padding-top: 10px; }
-        .brand-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .brand-float { width: 150px; height: auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; animation: floatLogo 4s ease-in-out infinite;}
-        .brand-float img { width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); }
-        @keyframes floatLogo { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
-        .brand-link { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--accent); text-decoration: none; padding: 8px 20px; border-radius: 50px; background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); }
+        /* EXPANDED ARSENAL CSS */
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .holo-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,229,255,0.2); background: rgba(0,229,255,0.1); }
+        .holo-card p { font-size: 0.95rem; }
 
-        /* 4. ARSENAL CONTENT */
-        .arsenal-content { width: 100%; height: 100vh; position: absolute; top:0; left:0; z-index: 10; background: #030610; padding: 4rem 5vw; display: flex; flex-direction: column; justify-content: center;}
-        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; grid-auto-rows: minmax(150px, auto); max-width: 1400px; margin: 0 auto; width: 100%;}
-        .bento-box { background: rgba(10, 15, 30, 0.4); border: 1px solid var(--border); border-radius: 24px; padding: 2rem; backdrop-filter: blur(10px); display: flex; flex-direction: column; justify-content: center; }
-        .box-editing { grid-column: span 12; background: linear-gradient(135deg, rgba(0,229,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,229,255,0.4); }
-        .box-media { grid-column: span 7; } .box-code { grid-column: span 5; } .box-projects { grid-column: span 6; } .box-education { grid-column: span 6; }
-        .bento-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 1rem; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-        .bento-title i { color: var(--accent); font-size: 1.8rem; }
-        .pro-apps { display: flex; flex-wrap: wrap; gap: 15px; }
-        .app-card { background: #050a15; border: 1px solid #1a2540; padding: 1rem 1.5rem; border-radius: 12px; font-family: 'Anton', sans-serif; font-size: 1.2rem; color: #fff; }
-        .tag-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { padding: 8px 15px; border-radius: 8px; background: rgba(0,229,255,0.05); border: 1px solid rgba(0,229,255,0.2); font-size: 0.9rem; color: #ddd; }
-        .code-tag { padding: 6px 12px; border-radius: 6px; border: 1px dashed #445; color: #889; font-size: 0.85rem; font-family: monospace;}
-        .info-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-        .info-list li h4 { color: var(--accent); font-size: 1.1rem; margin-bottom: 3px; }
-        .info-list li p { color: #99a; font-size: 0.9rem; }
+        /* Timeline UI Specific Styles */
+        .timeline-clip:hover { transform: scale(1.02) translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); filter: brightness(1.2); }
+        @keyframes scanTimeline { 0% { left: 0%; } 100% { left: 100%; } }
 
         /* FOOTER */
         .footer { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; background: #010205; border-top: 1px solid var(--border); z-index: 10; padding: 2rem 5vw;}
         .contact-label { color: var(--accent); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 2rem; font-family: 'Space Grotesk', sans-serif;}
-        .huge-contact { font-family: 'Anton', sans-serif; font-size: clamp(3rem, 10vw, 8rem); color: var(--text); text-decoration: none; transition: all 0.3s; line-height: 1.1; }
+        .huge-contact { font-family: 'Anton', sans-serif; font-size: clamp(2rem, 6vw, 5rem); color: var(--text); transition: all 0.3s; line-height: 1.2; max-width: 1200px; text-transform: uppercase;}
         .huge-contact:hover { color: transparent; -webkit-text-stroke: 2px var(--accent); text-shadow: 0 0 30px rgba(0,229,255,0.3);}
         .social-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; margin-top: 2rem; }
         .social-btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; text-decoration: none; color: #fff; background: rgba(255,255,255,0.05); border: 1px solid var(--border); }
         .footer-details { display: flex; gap: 2rem; font-size: 1.1rem; color: #889; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;}
         .footer-item { display: flex; align-items: center; gap: 10px; background: var(--glass); padding: 12px 25px; border-radius: 50px; border: 1px solid var(--border); color: #ddd; }
-        .footer-item i { color: var(--accent); font-size: 1.3rem;}
 
-        /* MOBILE FIXES TO ENSURE IT WORKS EVERYWHERE */
-        @media (max-width: 992px) {
-            .box-media, .box-code, .box-projects, .box-education { grid-column: span 12; }
-            .arsenal-content { height: auto; min-height: 100vh; position: relative; padding-top: 8rem;}
-            .door-vault { position: fixed; } /* Keeps door pinned while content scrolls behind if needed, handled by GSAP */
-        }
+        /* MOBILE FIXES */
         @media (max-width: 768px) {
             .text-utkarsh, .text-shukla { font-size: 25vw; }
             .hero-image-box { width: 240px; height: 360px; }
@@ -210,8 +174,12 @@
             .horizontal-wrapper { width: 100vw; height: auto; position: relative; flex-direction: column; }
             .panel { height: auto; min-height: 100vh; padding: 4rem 5vw; }
             .exp-card { padding: 2rem; }
-            .exp-year { font-size: 2.2rem; }
+            .exp-year { font-size: 2rem; }
+            .exp-title { font-size: 1.6rem; }
             .card-top-row { flex-direction: column; }
+            .door-overlay.door-shutter, .door-overlay.door-blast, .door-overlay.door-vault { position: relative; height: 50vh; pointer-events: none; display: none; }
+            .door-text-container:not(.ht-text) { display: none; }
+            .editing-timeline-container { width: 100% !important; overflow-x: auto; }
         }
     </style>
 </head>
@@ -226,18 +194,13 @@
     <canvas id="smoke-canvas"></canvas>
     <canvas id="glitter-canvas"></canvas>
     <div class="noise-bg"></div>
-
-    <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <main id="main-content">
         
-        <!-- ==========================================
-             SECTION 1: HERO (DOOR: GATES OF HEAVEN)
-             ========================================== -->
+        <!-- SECTION 1: HERO -->
         <section class="section-wrapper" id="sec-hero">
-            <!-- The Door -->
             <div class="door-overlay door-heaven">
                 <div class="gate gate-left hd-left"><div class="gate-arch"></div></div>
                 <div class="gate gate-right hd-right"><div class="gate-arch"></div></div>
@@ -246,31 +209,26 @@
                 <h1 class="door-label">Welcome To <br><span>My World</span></h1>
                 <div class="scroll-down-indicator">Scroll To Open<div class="scroll-line"></div></div>
             </div>
-            <!-- The Content -->
             <div class="hero">
                 <div class="text-utkarsh hc-title-l">UTKARSH</div>
                 <div class="hero-image-box hc-img-box">
                     <img src="cutout.png" alt="Utkarsh Shukla" class="gsap-hero-img holographic-cutout">
                 </div>
                 <div class="text-shukla hc-title-r">SHUKLA</div>
-                <div class="hero-subtitle-badge hc-badge">CONTENT STRATEGIST</div>
+                <div class="hero-subtitle-badge hc-badge">CONTENT STRATEGIST · REEL SCRIPTWRITER · ON-CAMERA CREATOR</div>
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 2: ABOUT (DOOR: INDUSTRIAL SHUTTER)
-             ========================================== -->
+        <!-- SECTION 2: ABOUT -->
         <section class="section-wrapper" id="sec-about">
-            <!-- The Door -->
-            <div class="door-overlay door-shutter">
+            <div class="door-overlay door-shutter desktop-only">
                 <div class="shutter-panel shutter-top ad-top"></div>
                 <div class="shutter-panel shutter-bottom ad-bot"></div>
             </div>
-            <div class="door-text-container at-text">
+            <div class="door-text-container at-text desktop-only">
                 <h1 class="door-label">The <span>Strategist</span></h1>
                 <div class="scroll-down-indicator">Unlock Profile<div class="scroll-line"></div></div>
             </div>
-            <!-- The Content -->
             <div class="about-content">
                 <div class="section-tag">01 // PROFILE</div>
                 <p class="about-text" id="split-text">
@@ -279,63 +237,59 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 3: EXPERIENCE (DOOR: CYBER BLAST DOORS)
-             ========================================== -->
+        <!-- SECTION 3: EXPERIENCE -->
         <section class="section-wrapper" id="sec-experience">
-            <!-- The Door -->
-            <div class="door-overlay door-blast">
+            <div class="door-overlay door-blast desktop-only">
                 <div class="blast-panel blast-left ed-left"></div>
                 <div class="blast-panel blast-right ed-right"></div>
             </div>
-            <div class="door-text-container et-text">
+            <div class="door-text-container et-text desktop-only">
                 <h1 class="door-label">Mission <span>Logs</span></h1>
                 <div class="scroll-down-indicator">Breach Doors<div class="scroll-line"></div></div>
             </div>
-            <!-- The Content -->
             <div class="horizontal-wrapper">
+                
+                <!-- Role 1 -->
                 <div class="panel pnl-1">
                     <div class="exp-card">
                         <div class="card-top-row">
                             <div>
                                 <i class="ri-rocket-2-fill exp-icon"></i>
                                 <div class="exp-year">FEB 2026 - PRESENT</div>
-                                <div class="exp-title">Social Media Manager & Strategist</div>
+                                <div class="exp-title">Social Media Manager & Content Strategist</div>
                                 <div class="exp-company">eSamparkTech Solutions & MEDH</div>
-                            </div>
-                            <div class="floating-brands">
-                                <div class="brand-container">
-                                    <div class="brand-float"><img src="esampark-logo.png" alt="eSampark Logo"></div>
-                                    <a href="https://esampark.biz/" target="_blank" class="brand-link">esampark.biz</a>
-                                </div>
-                                <div class="brand-container">
-                                    <div class="brand-float"><img src="medh-logo.png" alt="MEDH Logo"></div>
-                                    <a href="https://medh.co/" target="_blank" class="brand-link">medh.co</a>
-                                </div>
                             </div>
                         </div>
                         <div class="exp-desc">
-                            Owning the end-to-end content strategy, ideation, shoot planning, and publishing calendars. I write highly-targeted reel scripts specifically engineered for <strong>parents</strong> and perform as the <strong>primary on-camera talent</strong> for brand videos.
-                            <br><br>
-                            <em>Highlight:</em> Managed a promotional summer campaign for the MEDH brand featuring interactive games at a mall stall location, designing printable registration forms, feedback slips, and interactive game rules with a strict <strong>3 seconds timer</strong>.
+                            <ul>
+                                <li>Write scripts for short-form reels and video content for eSamparkTech and MEDH, and perform on-camera as the presenting talent for brand videos.</li>
+                                <li>Own end-to-end content strategy — ideation, scripting, shoot planning, and publishing calendars — across both brand accounts.</li>
+                                <li>Direct and edit reel content, balancing storytelling with platform-specific formats to maximize watch time and engagement.</li>
+                                <li>Track analytics and audience growth to continuously refine content strategy for eSamparkTech and MEDH.</li>
+                                <li><em>Highlight:</em> Managed a promotional summer campaign for MEDH featuring interactive games at a mall stall location with a strict <strong>3 seconds timer</strong>.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
+                <!-- Role 2 -->
                 <div class="panel pnl-2">
                     <div class="exp-card">
                         <i class="ri-clapperboard-fill exp-icon"></i>
                         <div class="exp-year">AUG 2024 - PRESENT</div>
-                        <div class="exp-title">Freelance Editor & Growth Manager</div>
-                        <div class="exp-company">Independent Clients | Skybags | Dell Laptops</div>
+                        <div class="exp-title">Editor (Freelance)</div>
+                        <div class="exp-company">Freelance | Social Media Handling & Growth</div>
                         <div class="exp-desc">
-                            Editing and managing social media handles, driving follower growth and engagement through consistent, high-retention content upkeep. 
-                            <br><br>
-                            Also volunteered as on-ground support for major brand campaign activations including <strong>Skybags</strong> and <strong>Dell Laptops</strong>.
+                            <ul>
+                                <li>Edited and managed social media handles for clients as a freelance editor, running alongside reporting and web development work.</li>
+                                <li>Grew follower base and engagement on managed accounts through consistent editing, posting, and content upkeep.</li>
+                                <li>Still actively handling and growing these accounts today.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
+                <!-- Role 3 -->
                 <div class="panel pnl-3">
                     <div class="exp-card">
                         <i class="ri-mic-2-fill exp-icon"></i>
@@ -343,13 +297,16 @@
                         <div class="exp-title">Field Reporter</div>
                         <div class="exp-company">Anti-Corruption News and Views, Mumbai</div>
                         <div class="exp-desc">
-                            Reported on local and regional corruption cases, conducting live interviews and writing critical news articles for print and digital platforms.
-                            <br><br>
-                            Applied journalism-grade research and fact-checking. Structured stories and crafted supporting social content to drastically boost engagement.
+                            <ul>
+                                <li>Reported on local and regional corruption cases, conducting on-site interviews and writing news articles for print and digital platforms.</li>
+                                <li>Researched, fact-checked, and verified information while maintaining source confidentiality.</li>
+                                <li>Wrote headlines, structured stories, and created supporting social content — captions and short posts — to boost engagement.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
+                <!-- Role 4 -->
                 <div class="panel pnl-4">
                     <div class="exp-card">
                         <i class="ri-code-box-fill exp-icon"></i>
@@ -357,91 +314,200 @@
                         <div class="exp-title">Web Development Intern</div>
                         <div class="exp-company">TechOctanet Services Pvt Ltd</div>
                         <div class="exp-desc">
-                            Gained hands-on experience building responsive web applications using modern technologies. Strengthened core problem-solving skills on real-world projects.
+                            <ul>
+                                <li>Gained hands-on experience building responsive web applications using modern technologies.</li>
+                                <li>Strengthened problem-solving skills by working on real-world development projects.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 4: ARSENAL (DOOR: THE VAULT)
-             ========================================== -->
-        <section class="section-wrapper" id="sec-arsenal">
-            <!-- The Door -->
-            <div class="door-overlay door-vault">
-                <div class="vault-panel vault-left vd-left"></div>
-                <div class="vault-panel vault-right vd-right"></div>
-                <div class="vault-wheel vd-wheel"><i class="ri-lock-password-fill"></i></div>
-            </div>
-            <div class="door-text-container vt-text" style="top: -150px;">
-                <h1 class="door-label">The <span>Arsenal</span></h1>
-            </div>
-            <!-- The Content -->
-            <div class="arsenal-content">
-                <div class="bento-grid">
-                    <div class="bento-box box-editing bento-item">
-                        <div class="bento-title"><i class="ri-film-fill"></i> Master Post-Production Suite</div>
-                        <div class="pro-apps">
-                            <div class="app-card">DaVinci Resolve</div>
-                            <div class="app-card">Premiere Pro</div>
-                            <div class="app-card">After Effects</div>
-                            <div class="app-card">CapCut Pro</div>
+        <!-- SECTION 4: ARSENAL & VAULT -->
+        <section class="section-wrapper" id="sec-arsenal" style="background: #000; height: auto;">
+            
+            <div id="vault-pin-target" style="position: relative; width: 100vw; height: 100vh;">
+                <div class="door-overlay door-vault desktop-only">
+                    <div class="vault-panel vault-left vd-left"></div>
+                    <div class="vault-panel vault-right vd-right"></div>
+                    <div class="vault-wheel vd-wheel"><i class="ri-lock-password-fill"></i></div>
+                </div>
+                <div class="door-text-container vt-text desktop-only" style="top: -150px;">
+                    <h1 class="door-label">The <span>Arsenal</span></h1>
+                </div>
+
+                <!-- POST-PRODUCTION TIMELINE UI -->
+                <div class="arsenal-panel panel-editing" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #0a0f1a, #000); z-index: 10;">
+                    <div class="section-tag" style="margin-bottom: 3rem;">02.1 // POST-PRODUCTION SUITE</div>
+                    
+                    <div class="editing-timeline-container" style="position: relative; width: 90vw; max-width: 1000px; padding: 40px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; box-shadow: inset 0 0 50px rgba(0,0,0,0.8);">
+                        
+                        <!-- Red Playhead Scanning Across -->
+                        <div class="playhead" style="position: absolute; top: 0; bottom: 0; width: 2px; background: #ff0055; z-index: 20; box-shadow: 0 0 15px #ff0055; animation: scanTimeline 6s infinite linear;">
+                            <div style="position: absolute; top: 0; left: -6px; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 10px solid #ff0055;"></div>
                         </div>
-                    </div>
 
-                    <div class="bento-box box-media bento-item">
-                        <div class="bento-title"><i class="ri-quill-pen-fill"></i> Content & Strategy</div>
-                        <div class="tag-wrap">
-                            <span class="tag">Reel Scriptwriting</span>
-                            <span class="tag">On-Camera Presenting</span>
-                            <span class="tag">Campaign Strategy</span>
-                            <span class="tag">Brand Growth</span>
-                            <span class="tag">Fact-Checking</span>
-                            <span class="tag">Field Reporting</span>
+                        <!-- Video Track 1 -->
+                        <div class="timeline-track" style="display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); width: 150%;">
+                            <div class="timeline-clip gsap-edit-item" style="width: 250px; background: rgba(0, 229, 255, 0.1); border-left: 4px solid var(--accent); padding: 15px 20px; border-radius: 4px; display: flex; align-items: center; gap: 15px; transition: 0.3s; cursor: none;">
+                                <i class="ri-video-add-fill" style="color: var(--accent); font-size: 1.5rem;"></i>
+                                <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: #fff;">Premiere Pro</span>
+                            </div>
+                            <div class="timeline-clip gsap-edit-item" style="width: 350px; background: rgba(255, 0, 85, 0.1); border-left: 4px solid #ff0055; padding: 15px 20px; border-radius: 4px; display: flex; align-items: center; gap: 15px; transition: 0.3s; margin-left: 30px; cursor: none;">
+                                <i class="ri-magic-fill" style="color: #ff0055; font-size: 1.5rem;"></i>
+                                <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: #fff;">After Effects</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="bento-box box-code bento-item">
-                        <div class="bento-title"><i class="ri-terminal-box-line" style="color: #666;"></i> Web & Tech Stack</div>
-                        <div class="tag-wrap">
-                            <span class="code-tag">Python & C</span>
-                            <span class="code-tag">JavaScript</span>
-                            <span class="code-tag">React Native</span>
-                            <span class="code-tag">HTML/CSS/PHP</span>
-                            <span class="code-tag">MySQL & MongoDB</span>
+                        <!-- Video/Color Track 2 -->
+                        <div class="timeline-track" style="display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); width: 150%; transform: translateX(-50px);">
+                            <div class="timeline-clip gsap-edit-item" style="width: 300px; background: rgba(170, 0, 255, 0.1); border-left: 4px solid #aa00ff; padding: 15px 20px; border-radius: 4px; display: flex; align-items: center; gap: 15px; transition: 0.3s; cursor: none;">
+                                <i class="ri-palette-fill" style="color: #aa00ff; font-size: 1.5rem;"></i>
+                                <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: #fff;">DaVinci Resolve</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="bento-box box-projects bento-item">
-                        <div class="bento-title"><i class="ri-folder-add-fill"></i> Dev Projects</div>
-                        <ul class="info-list">
-                            <li><h4>Pawfect Buddy</h4><p>Complete pet care web app connecting owners and vendors.</p></li>
-                            <li><h4>Library Book Management</h4><p>Digital system for managing records efficiently.</p></li>
-                        </ul>
-                    </div>
-
-                    <div class="bento-box box-education bento-item">
-                        <div class="bento-title"><i class="ri-graduation-cap-fill"></i> Education</div>
-                        <ul class="info-list">
-                            <li><h4>BSc Information Technology</h4><p>Thakur College of Science and Commerce (SGPA 7.30)</p></li>
-                            <li><h4>Certifications</h4><p>The Complete Python Developer (Udemy) • Ethical Hacking Level 1</p></li>
-                        </ul>
+                        <!-- Audio/Social Track -->
+                        <div class="timeline-track" style="display: flex; gap: 15px; padding: 15px 0; width: 150%; transform: translateX(-10px);">
+                            <div class="timeline-clip gsap-edit-item" style="width: 220px; background: rgba(0, 255, 136, 0.1); border-left: 4px solid #00ff88; padding: 15px 20px; border-radius: 4px; display: flex; align-items: center; gap: 15px; transition: 0.3s; cursor: none;">
+                                <i class="ri-smartphone-fill" style="color: #00ff88; font-size: 1.5rem;"></i>
+                                <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: #fff;">CapCut Pro</span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
+
+            <!-- CONTENT STRATEGY -->
+            <div class="arsenal-panel panel-content" style="position: relative; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; background: #010205; overflow: hidden; z-index: 20;">
+                
+                <div style="position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 80%; text-align: center;">
+                    <div class="section-tag" style="justify-content: center; margin-bottom: 1rem;">02.2 // STRATEGY & CREATIVE ARSENAL</div>
+                    <p style="color: #889; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Mastery across end-to-end content pipelines, from journalism-grade research to executing high-conversion brand campaigns and maintaining dynamic UI/UX designs.</p>
+                </div>
+
+                <div class="marquee-container" style="display: flex; width: 200vw; transform: rotate(-2deg); margin: 60px 0 20px;">
+                    <div class="marquee-track gsap-marquee-1" style="display: flex; gap: 50px; font-family: 'Anton', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent); white-space: nowrap;">
+                        REEL SCRIPTWRITING — ON-CAMERA PRESENTING — CAMPAIGN WRITING — GRAPHIC DESIGN — UI/UX DESIGN — REEL SCRIPTWRITING — ON-CAMERA PRESENTING —
+                    </div>
+                </div>
+                <div class="marquee-container" style="display: flex; width: 200vw; transform: rotate(2deg); margin: 20px 0;">
+                    <div class="marquee-track gsap-marquee-2" style="display: flex; gap: 50px; font-family: 'Anton', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: transparent; -webkit-text-stroke: 1px #fff; white-space: nowrap; margin-left: -50vw;">
+                        BRAND GROWTH — NEWS WRITING — FACT-CHECKING — FIELD REPORTING — VIDEOGRAPHY — PHOTOGRAPHY — BRAND GROWTH —
+                    </div>
+                </div>
+            </div>
+
+            <!-- TECH STACK -->
+            <div class="arsenal-panel panel-tech" style="position: relative; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #000; z-index: 20;">
+                <div class="section-tag">02.3 // WEB & TECH STACK</div>
+                <div class="terminal-box" style="width: 90vw; max-width: 800px; background: rgba(0,255,255,0.02); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px; padding: 2rem; box-shadow: 0 0 30px rgba(0,255,255,0.05); margin-top: 2rem;">
+                    <div class="terminal-header" style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid rgba(0,255,255,0.1); padding-bottom: 10px;">
+                        <div style="width:12px; height:12px; border-radius:50%; background:#ff5f56;"></div>
+                        <div style="width:12px; height:12px; border-radius:50%; background:#ffbd2e;"></div>
+                        <div style="width:12px; height:12px; border-radius:50%; background:#27c93f;"></div>
+                    </div>
+                    <div class="terminal-body" style="font-family: monospace; font-size: clamp(0.9rem, 1.5vw, 1.2rem); line-height: 2; color: #a5d6ff;">
+                        <span style="color: #7ee787;">utkarsh@dev:~$</span> ./load_stack.sh <br><br>
+                        <span class="gsap-typewriter">
+                            <span style="color: var(--accent);">[PROGRAMMING]</span><br>
+                            > Loading Languages: Python, C, JavaScript, PHP <br><br>
+                            <span style="color: var(--accent);">[WEB & DATABASE]</span><br>
+                            > Booting Frameworks: React Native, HTML, CSS, WordPress, Flutter SDK <br>
+                            > Connecting Databases: MySQL, MongoDB <br><br>
+                            <span style="color: var(--accent);">[TOOLS]</span><br>
+                            > Environment Initialized: VS Code, Git/GitHub, Android Studio, MS Office 365 <br><br>
+                            > Systems optimal. Ready for deployment. <span style="animation: blink 1s infinite;">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECTS & CREDENTIALS -->
+            <div class="arsenal-panel panel-projects" style="position: relative; width: 100%; min-height: 100vh; padding: 10rem 5vw; background: #010205; display: flex; flex-direction: column; align-items: center; z-index: 20;">
+                <div class="section-tag" style="margin-bottom: 4rem;">02.4 // DEPLOYMENTS & CREDENTIALS</div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; width: 100%; max-width: 1400px;">
+                    
+                    <!-- Pawfect Buddy -->
+                    <div class="holo-card gsap-holo" style="flex: 1 1 300px; background: rgba(10, 15, 30, 0.4); border: 1px solid var(--accent); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.3s;">
+                        <i class="ri-code-box-fill" style="font-size: 2.5rem; color: var(--accent);"></i>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 15px 0 10px; color: #fff;">Pawfect Buddy</h3>
+                        <p style="color: #889; line-height: 1.6;">Complete pet care & shop management web application specifically built to connect pet owners and local vendors seamlessly.</p>
+                    </div>
+
+                    <!-- Library Management -->
+                    <div class="holo-card gsap-holo" style="flex: 1 1 300px; background: rgba(10, 15, 30, 0.4); border: 1px solid var(--accent); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.3s;">
+                        <i class="ri-book-read-fill" style="font-size: 2.5rem; color: var(--accent);"></i>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 15px 0 10px; color: #fff;">Library Management System</h3>
+                        <p style="color: #889; line-height: 1.6;">A robust digital system designed for tracking, organizing, and managing library records and daily transactions efficiently.</p>
+                    </div>
+
+                    <!-- Web Design & Game -->
+                    <div class="holo-card gsap-holo" style="flex: 1 1 300px; background: rgba(10, 15, 30, 0.4); border: 1px solid var(--accent); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.3s;">
+                        <i class="ri-gamepad-fill" style="font-size: 2.5rem; color: var(--accent);"></i>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 15px 0 10px; color: #fff;">Responsive Web Design & Game</h3>
+                        <p style="color: #889; line-height: 1.6;">Mobile-friendly web interface built end-to-end, featuring "Duck Jump", a simple interactive game utilizing core programming logic.</p>
+                    </div>
+
+                    <!-- Brand Campaigns -->
+                    <div class="holo-card gsap-holo" style="flex: 1 1 450px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.2); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.3s;">
+                        <i class="ri-megaphone-fill" style="font-size: 2.5rem; color: #fff;"></i>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 15px 0 10px; color: #fff;">Brand & Campaign Work</h3>
+                        <ul style="color: #889; line-height: 1.6; padding-left: 20px;">
+                            <li><strong>On-Camera Talent:</strong> Modeled and performed in branded reels and campaign videos for consumer brands, alongside writing the scripts myself.</li>
+                            <li><strong>Skybags:</strong> Volunteered on-ground for campaign activation, supporting rollout and audience engagement.</li>
+                            <li><strong>Dell Laptops:</strong> Volunteered for campaign activation, assisting with event coordination and on-ground execution.</li>
+                            <li><strong>Campaign Writing:</strong> Wrote campaign concepts and messaging for brand activations, from idea to on-ground rollout.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="holo-card gsap-holo" style="flex: 1 1 450px; background: rgba(0, 229, 255, 0.05); border: 1px solid var(--accent); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.3s;">
+                        <i class="ri-graduation-cap-fill" style="font-size: 2.5rem; color: #fff;"></i>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 15px 0 10px; color: #fff;">Education & Certifications</h3>
+                        <p style="color: #889; line-height: 1.6; margin-bottom: 15px;">
+                            <strong>BSc Information Technology (2021-2024)</strong><br>Thakur College of Science and Commerce (SGPA: 7.30)
+                        </p>
+                        <div style="font-size: 0.85rem; color: var(--accent); font-family: monospace; line-height: 1.6;">
+                            > The Complete Python Developer (Udemy)<br>
+                            > Graphic Designing (Thakur College)<br>
+                            > Ethical Hacking Level 1 (MrWebsecure)<br>
+                            > Software Development (Aim Computer Class)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </section>
 
         <!-- FOOTER -->
         <footer class="footer">
             <div class="contact-label">Initiate Transmission</div>
-            <div class="magnetic-wrap">
-                <a href="mailto:utkarshshukla0327@gmail.com" class="huge-contact">Let's Connect</a>
+            <div class="magnetic-wrap" style="margin-bottom: 2rem;">
+                <!-- Final Quote added perfectly here -->
+                <div class="huge-contact">"Let's create something worth watching — I'll write it, shoot it, edit it, and show up for it."</div>
             </div>
+            
             <div class="social-container">
                 <div class="magnetic-wrap"><a href="https://wa.me/919764979543" target="_blank" class="social-btn" style="background:#25D366"><i class="ri-whatsapp-fill"></i> +91 9764979543</a></div>
-                <div class="magnetic-wrap"><a href="https://instagram.com/utkarshshukla____" target="_blank" class="social-btn" style="background:#E1306C"><i class="ri-instagram-fill"></i> Instagram</a></div>
+                <div class="magnetic-wrap"><a href="https://instagram.com/utkarshshukla____" target="_blank" class="social-btn" style="background:#E1306C"><i class="ri-instagram-fill"></i> @utkarshshukla____</a></div>
                 <div class="magnetic-wrap"><a href="https://linkedin.com/in/utkarshshukla" target="_blank" class="social-btn" style="background:#0077B5"><i class="ri-linkedin-fill"></i> LinkedIn</a></div>
+            </div>
+            <div class="footer-details">
+                <a href="mailto:utkarshshukla0327@gmail.com" style="text-decoration: none;">
+                    <div class="footer-item magnetic-wrap"><i class="ri-mail-send-fill"></i> utkarshshukla0327@gmail.com</div>
+                </a>
+                <div class="footer-item magnetic-wrap"><i class="ri-map-pin-fill"></i> Dadar (W), Mumbai 400028</div>
+            </div>
+            <div class="magnetic-wrap" style="margin-top: 2rem;">
+                <button id="omni-open-widget-btn" class="social-btn" style="cursor: none; outline: none; background: transparent; border: 1px solid var(--accent); color: #fff;">
+                    <i class="ri-robot-2-fill"></i> Open Utkarsh Assistant Widget
+                </button>
             </div>
         </footer>
 
@@ -481,9 +547,8 @@
         });
     </script>
 
-    <!-- 🚀 THE ULTIMATE MULTI-DOOR GSAP LOGIC 🚀 -->
+    <!-- 🚀 MASTER GSAP LOGIC 🚀 -->
     <script>
-        // 🌩️ Preloader Logic
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const preloader = document.getElementById('thunder-preloader');
@@ -498,7 +563,6 @@
             }, 2500); 
         });
 
-        // Custom Cursor
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
         window.addEventListener('mousemove', (e) => {
@@ -522,7 +586,6 @@
                   .to(".hc-title-r", { x: 0, opacity: 1, duration: 1 }, "<")
                   .to(".hc-badge", { y: 0, opacity: 1, duration: 1 }, "-=0.5");
 
-            // Split Text Logic for About
             const text = document.getElementById("split-text");
             if(text) {
                 const words = text.innerText.split(" ");
@@ -533,49 +596,31 @@
                 });
             }
 
-            // 🎬 DOOR 2: INDUSTRIAL SHUTTER (ABOUT)
-            // On mobile we don't pin the section itself for height reasons, just trigger normally
-            let aboutPinParams = isMobile ? false : true;
-            let aboutEndParams = isMobile ? "bottom top" : "+=1500";
-            
-            let aboutTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-about", start: "top top", end: aboutEndParams, scrub: 1, pin: aboutPinParams } });
-            aboutTl.to(".at-text", { opacity: 0, y: -50, duration: 1 })
-                   .to(".ad-top", { yPercent: -100, duration: 2, ease: "power3.inOut" }, "-=0.5")
-                   .to(".ad-bot", { yPercent: 100, duration: 2, ease: "power3.inOut" }, "<")
-                   .fromTo("#split-text span", { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.05, duration: 2 }, "-=1");
-
-            // 🎬 DOOR 3: CYBER BLAST DOORS (EXPERIENCE)
             if(!isMobile) {
+                // 🎬 DOOR 2: INDUSTRIAL SHUTTER (ABOUT)
+                let aboutTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-about", start: "top top", end: "+=1500", scrub: 1, pin: true } });
+                aboutTl.to(".at-text", { opacity: 0, y: -50, duration: 1 })
+                       .to(".ad-top", { yPercent: -100, duration: 2, ease: "power3.inOut" }, "-=0.5")
+                       .to(".ad-bot", { yPercent: 100, duration: 2, ease: "power3.inOut" }, "<")
+                       .fromTo("#split-text span", { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.05, duration: 2 }, "-=1");
+
+                // 🎬 DOOR 3: CYBER BLAST DOORS (EXPERIENCE)
                 const hWrapper = document.querySelector('.horizontal-wrapper');
                 const panels = gsap.utils.toArray('.panel');
-                
                 let expTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-experience", start: "top top", end: () => "+=" + (hWrapper.offsetWidth + 1000), scrub: 1, pin: true } });
                 
                 expTl.to(".et-text", { scale: 1.5, opacity: 0, duration: 1 })
                      .to(".ed-left", { xPercent: -100, duration: 2, ease: "power4.inOut" }, "-=0.5")
                      .to(".ed-right", { xPercent: 100, duration: 2, ease: "power4.inOut" }, "<")
-                     // Once doors open, start the horizontal scroll
                      .to(panels, { xPercent: -100 * (panels.length - 1), ease: "none", duration: 5 }, "+=0.5");
-            } else {
-                // Mobile fallback for Blast Doors (Just open them and let user scroll vertically)
-                let expTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-experience", start: "top top", end: "+=500", scrub: 1 } });
-                expTl.to(".et-text", { opacity: 0 }).to(".ed-left", { xPercent: -100 }, "<").to(".ed-right", { xPercent: 100 }, "<");
-            }
 
-            // 🎬 DOOR 4: THE VAULT (ARSENAL)
-            let arsenalPin = isMobile ? false : true;
-            let arsenalEnd = isMobile ? "bottom top" : "+=1500";
+                // 🎬 DOOR 4: THE VAULT (ARSENAL)
+                let arsenalTl = gsap.timeline({ scrollTrigger: { trigger: "#vault-pin-target", start: "top top", end: "+=1500", scrub: 1, pin: true } });
+                arsenalTl.to(".vd-wheel", { rotation: 360, scale: 3, opacity: 0, duration: 1.5, ease: "power2.in" })
+                         .to(".vt-text", { opacity: 0, duration: 0.5 }, "<")
+                         .to(".vd-left", { xPercent: -100, duration: 2, ease: "power3.inOut" }, "-=0.5")
+                         .to(".vd-right", { xPercent: 100, duration: 2, ease: "power3.inOut" }, "<");
 
-            let arsenalTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-arsenal", start: "top top", end: arsenalEnd, scrub: 1, pin: arsenalPin } });
-            
-            arsenalTl.to(".vd-wheel", { rotation: 360, scale: 3, opacity: 0, duration: 1.5, ease: "power2.in" })
-                     .to(".vt-text", { opacity: 0, duration: 0.5 }, "<")
-                     .to(".vd-left", { xPercent: -100, duration: 2, ease: "power3.inOut" }, "-=0.5")
-                     .to(".vd-right", { xPercent: 100, duration: 2, ease: "power3.inOut" }, "<")
-                     .from(".bento-item", { y: 100, opacity: 0, stagger: 0.1, duration: 1.5, ease: "back.out(1.5)" }, "-=1");
-
-            // Magnetic Buttons (Desktop only)
-            if(!isMobile) {
                 document.querySelectorAll('.magnetic-wrap').forEach((magnetic) => {
                     magnetic.addEventListener('mousemove', function(e) {
                         const position = magnetic.getBoundingClientRect();
@@ -585,8 +630,21 @@
                     });
                     magnetic.addEventListener('mouseleave', function() { gsap.to(magnetic, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" }); });
                 });
+            } else {
+                gsap.fromTo("#split-text span", { opacity: 0.1, y: 20 }, { opacity: 1, y: 0, stagger: 0.05, ease: "power2.out", scrollTrigger: { trigger: ".about-content", start: "top 70%", end: "bottom 60%", scrub: 1 } });
             }
+
+            // Expanded Arsenal Animations
+            gsap.from(".gsap-edit-item", { scrollTrigger: { trigger: ".panel-editing", start: "top 50%" }, x: -50, opacity: 0, stagger: 0.15, duration: 1, ease: "power3.out" });
+            gsap.to(".gsap-marquee-1", { xPercent: -20, ease: "none", scrollTrigger: { trigger: ".panel-content", scrub: 1 } });
+            gsap.to(".gsap-marquee-2", { xPercent: 20, ease: "none", scrollTrigger: { trigger: ".panel-content", scrub: 1 } });
+            gsap.from(".gsap-typewriter", { scrollTrigger: { trigger: ".panel-tech", start: "top 60%" }, opacity: 0, y: 20, duration: 1.5, ease: "power2.out" });
+            gsap.from(".gsap-holo", { scrollTrigger: { trigger: ".panel-projects", start: "top 70%" }, y: 80, opacity: 0, stagger: 0.2, duration: 1.2, ease: "power3.out" });
+
         });
     </script>
+    
+    <!-- OMNIDIMENSION WEB WIDGET SCRIPT -->
+    <script id="omnidimension-web-widget" async src="https://omnidim.io/web_widget.js?secret_key=9abbd03030fa0efb634866671ffcb0b2"></script>
 </body>
 </html>
