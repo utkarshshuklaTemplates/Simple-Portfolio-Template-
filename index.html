@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Utkarsh Shukla | Content Strategist</title>
     
-    <!-- Premium Fonts: Anton (Bold), Inter (Body), Space Grotesk (Tech) -->
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         :root {
             --bg: #010205; 
             --text: #f0f0f0;
-            --accent: #00e5ff; /* Cyber Cyan */
+            --accent: #00e5ff; 
             --glass: rgba(0, 229, 255, 0.03);
             --border: rgba(0, 229, 255, 0.15);
         }
@@ -37,234 +37,122 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Prevent scroll during preloader */
-        .no-scroll {
-            overflow: hidden !important;
-        }
-
+        .no-scroll { overflow: hidden !important; }
         ::selection { background: var(--accent); color: #000; }
+        .prevent-select { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
 
-        /* Disable ugly blue highlighting on text */
-        .prevent-select {
-            user-select: none; -webkit-user-select: none;
-            -moz-user-select: none; -ms-user-select: none;
-        }
-
-        /* =========================================
-           🌩️ THUNDERSTORM PRELOADER (NEW) 🌩️
-           ========================================= */
+        /* 🌩️ THUNDERSTORM PRELOADER 🌩️ */
         #thunder-preloader {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: #000; /* Dark night sky */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999; /* Highest priority */
-            animation: thunderFlash 2.5s forwards;
-            transition: opacity 0.5s ease;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; 
+            display: flex; justify-content: center; align-items: center; z-index: 99999; 
+            animation: thunderFlash 2.5s forwards; transition: opacity 0.5s ease;
         }
-
         .loading-text {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(2rem, 8vw, 6rem);
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+            font-family: 'Anton', sans-serif; font-size: clamp(2rem, 8vw, 6rem);
+            color: #fff; text-transform: uppercase; letter-spacing: 5px;
             text-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5);
             animation: glitchTremble 0.15s infinite;
         }
-
-        /* Intense lightning flash effect simulating a thunderstorm */
         @keyframes thunderFlash {
-            0% { background: #000; }
-            10% { background: #000; }
-            12% { background: #fff; box-shadow: inset 0 0 100px #0ff; }
-            14% { background: #000; }
-            15% { background: #e0f7fa; }
-            18% { background: #000; }
-            45% { background: #000; }
-            47% { background: #fff; }
-            50% { background: #000; }
-            70% { background: #000; }
-            72% { background: #fff; box-shadow: inset 0 0 150px #0ff; }
-            75% { background: #000; }
-            100% { background: #000; }
+            0% { background: #000; } 10% { background: #000; } 12% { background: #fff; box-shadow: inset 0 0 100px #0ff; }
+            14% { background: #000; } 15% { background: #e0f7fa; } 18% { background: #000; }
+            45% { background: #000; } 47% { background: #fff; } 50% { background: #000; }
+            70% { background: #000; } 72% { background: #fff; box-shadow: inset 0 0 150px #0ff; }
+            75% { background: #000; } 100% { background: #000; }
         }
+        @keyframes glitchTremble { 0% { transform: translate(2px, 2px); } 50% { transform: translate(-2px, -2px); } 100% { transform: translate(2px, -2px); } }
 
-        @keyframes glitchTremble {
-            0% { transform: translate(2px, 2px); }
-            50% { transform: translate(-2px, -2px); }
-            100% { transform: translate(2px, -2px); }
-        }
+        /* Global Background Effects */
+        .noise-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9998; opacity: 0.05; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        #smoke-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; opacity: 0.4; }
+        #glitter-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9997; pointer-events: none; mix-blend-mode: screen; }
 
-        /* Cinematic Background Noise */
-        .noise-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none; z-index: 9998; opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        /* Dark Smoky Motion Background */
-        #smoke-canvas {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: 0; pointer-events: none; opacity: 0.4;
-        }
-
-        /* 🚀 MAGIC GLITTER LINE CURSOR TRAIL 🚀 */
-        #glitter-canvas {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: 9997; pointer-events: none; mix-blend-mode: screen;
-        }
-
-        /* === CUSTOM CURSOR === */
-        @media (hover: none) and (pointer: coarse) {
-            .cursor-dot, .cursor-outline { display: none !important; }
-            * { cursor: auto !important; }
-        }
-        .cursor-dot, .cursor-outline {
-            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
-            border-radius: 50%; z-index: 9999; pointer-events: none;
-        }
+        /* Custom Cursor */
+        @media (hover: none) and (pointer: coarse) { .cursor-dot, .cursor-outline { display: none !important; } * { cursor: auto !important; } }
+        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
         .cursor-dot { width: 5px; height: 5px; background-color: var(--accent); box-shadow: 0 0 15px var(--accent); }
         .cursor-outline { width: 40px; height: 40px; border: 1px solid var(--accent); transition: width 0.2s, height 0.2s, background-color 0.2s; }
 
-        /* =========================================
-           🚀 SWARG KE DARWAZE (GATES OF HEAVEN) 🚀 
-           ========================================= */
-        .heaven-gates {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: 60; display: flex; pointer-events: none;
-        }
-
-        .gate-door {
-            width: 50vw; height: 100vh; background: #010205;
-            position: relative; display: flex; align-items: center;
-            box-shadow: 0 0 50px rgba(0, 229, 255, 0.1);
-        }
-
-        .gate-left { justify-content: flex-end; border-right: 2px solid var(--accent); box-shadow: 20px 0 100px rgba(0,229,255,0.15); }
-        .gate-right { justify-content: flex-start; border-left: 2px solid var(--accent); box-shadow: -20px 0 100px rgba(0,229,255,0.15); }
-
-        .gate-arch {
-            width: 300px; height: 80vh;
-            border: 2px solid rgba(0,229,255,0.5);
-            box-shadow: 0 0 40px rgba(0,229,255,0.3), inset 0 0 30px rgba(0,229,255,0.2);
-        }
-
-        .gate-left .gate-arch { border-right: none; border-radius: 500px 0 0 500px; margin-right: 10px; }
-        .gate-right .gate-arch { border-left: none; border-radius: 0 500px 500px 0; margin-left: 10px; }
-
-        @media (max-width: 768px) {
-            .gate-arch { width: 150px; height: 60vh; }
-        }
-
-        .gate-content {
-            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            z-index: 61; pointer-events: none;
-        }
-
-        .welcome-text {
-            font-family: 'Anton', sans-serif; font-size: clamp(3rem, 10vw, 8rem);
-            color: #fff; text-align: center; line-height: 1; text-transform: uppercase;
-            text-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            padding: 0 20px;
-        }
-        .welcome-text span {
-            color: var(--accent);
-            text-shadow: 0 0 40px rgba(0, 229, 255, 0.8), 0 0 80px rgba(0, 229, 255, 0.4);
-            -webkit-text-stroke: 0;
-        }
-
-        .scroll-indicator {
-            position: absolute; bottom: 40px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px;
-            display: flex; flex-direction: column; align-items: center; gap: 15px; color: #aaa;
-            font-family: 'Space Grotesk', sans-serif; font-weight: 600;
-        }
+        /* Shared Door Overlay Settings */
+        .section-wrapper { position: relative; width: 100vw; min-height: 100vh; overflow: hidden; background: transparent; }
+        .door-overlay { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 50; display: flex; pointer-events: none; }
+        .door-text-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 60; pointer-events: none; }
+        
+        .door-label { font-family: 'Anton', sans-serif; font-size: clamp(2.5rem, 8vw, 6rem); color: #fff; text-align: center; text-transform: uppercase; text-shadow: 0 10px 40px rgba(0,0,0,0.9); padding: 0 20px; }
+        .door-label span { color: var(--accent); text-shadow: 0 0 30px rgba(0, 229, 255, 0.8); }
+        .scroll-down-indicator { position: absolute; bottom: 40px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; display: flex; flex-direction: column; align-items: center; gap: 15px; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 600; text-shadow: 0 0 10px #000; }
         .scroll-line { width: 2px; height: 50px; background: rgba(0, 229, 255, 0.2); position: relative; overflow: hidden; border-radius: 2px; }
-        .scroll-line::after {
-            content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%;
-            background: var(--accent); animation: scrollDown 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-            box-shadow: 0 0 10px var(--accent);
-        }
+        .scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--accent); animation: scrollDown 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite; box-shadow: 0 0 10px var(--accent); }
         @keyframes scrollDown { 0% { top: -100%; } 100% { top: 100%; } }
 
-        /* === HERO SECTION (BEHIND THE DOORS) === */
-        .hero {
-            height: 100vh; width: 100vw; position: relative;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: transparent; overflow: hidden; z-index: 10;
-        }
+        /* =======================================
+           DOOR 1: GATES OF HEAVEN (HERO) 
+        ======================================= */
+        .door-heaven .gate { width: 50vw; height: 100%; background: #010205; position: relative; display: flex; align-items: center; box-shadow: 0 0 50px rgba(0, 229, 255, 0.1); pointer-events: auto; }
+        .door-heaven .gate-left { justify-content: flex-end; border-right: 2px solid var(--accent); box-shadow: 20px 0 100px rgba(0,229,255,0.15); }
+        .door-heaven .gate-right { justify-content: flex-start; border-left: 2px solid var(--accent); box-shadow: -20px 0 100px rgba(0,229,255,0.15); }
+        .gate-arch { width: 300px; height: 80vh; border: 2px solid rgba(0,229,255,0.5); box-shadow: 0 0 40px rgba(0,229,255,0.3), inset 0 0 30px rgba(0,229,255,0.2); }
+        .gate-left .gate-arch { border-right: none; border-radius: 500px 0 0 500px; margin-right: 10px; }
+        .gate-right .gate-arch { border-left: none; border-radius: 0 500px 500px 0; margin-left: 10px; }
+        @media (max-width: 768px) { .gate-arch { width: 150px; height: 60vh; } }
 
-        .text-utkarsh {
-            position: absolute; top: 15%; width: 100%; text-align: center;
-            font-family: 'Anton', sans-serif; font-size: 22vw; line-height: 0.8;
-            color: #ffffff; z-index: 1; text-transform: uppercase; letter-spacing: -2px; opacity: 0;
-        }
+        /* =======================================
+           DOOR 2: INDUSTRIAL SHUTTER (ABOUT) 
+        ======================================= */
+        .door-shutter { flex-direction: column; }
+        .door-shutter .shutter-panel { width: 100vw; height: 50vh; background: repeating-linear-gradient(180deg, #050810, #050810 10px, #0a0f1d 10px, #0a0f1d 20px); pointer-events: auto; position: relative; display: flex; align-items: center; justify-content: center; }
+        .shutter-top { border-bottom: 5px solid var(--accent); box-shadow: 0 10px 50px rgba(0,229,255,0.2); }
+        .shutter-bottom { border-top: 5px solid var(--accent); box-shadow: 0 -10px 50px rgba(0,229,255,0.2); }
+        /* Metallic Handles */
+        .shutter-top::after { content:''; position:absolute; bottom: 10px; width: 200px; height: 10px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
+        .shutter-bottom::after { content:''; position:absolute; top: 10px; width: 200px; height: 10px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
 
-        .hero-image-box {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.2);
-            width: 320px; height: 480px; z-index: 2; border-radius: 12px;
-            border: 2px solid var(--accent); box-shadow: 0 0 80px rgba(0, 229, 255, 0.6), inset 0 0 30px rgba(0, 229, 255, 0.3);
-            overflow: visible; display: flex; align-items: flex-end; justify-content: center; background: transparent;
-            opacity: 0; filter: brightness(3) blur(20px);
-        }
+        /* =======================================
+           DOOR 3: CYBER BLAST DOORS (EXPERIENCE)
+        ======================================= */
+        .door-blast { display: flex; }
+        .door-blast .blast-panel { width: 50vw; height: 100vh; background: #03050a; position: relative; display: flex; align-items: center; pointer-events: auto; }
+        .blast-left { justify-content: flex-end; border-right: 10px solid #222; }
+        .blast-right { justify-content: flex-start; border-left: 10px solid #222; }
+        /* Caution Stripes */
+        .blast-left::before { content:''; position:absolute; right:0; top:0; height:100%; width:40px; background: repeating-linear-gradient(45deg, #000, #000 20px, var(--accent) 20px, var(--accent) 40px); opacity: 0.8;}
+        .blast-right::before { content:''; position:absolute; left:0; top:0; height:100%; width:40px; background: repeating-linear-gradient(-45deg, #000, #000 20px, var(--accent) 20px, var(--accent) 40px); opacity: 0.8;}
 
-        .hero-image-box img.holographic-cutout {
-            position: absolute; bottom: 0; left: 50%; width: 140%; height: auto;
-            object-fit: cover; z-index: 5; transform: translateX(-50%); 
-            filter: drop-shadow(0 -10px 30px rgba(0, 229, 255, 0.5)) contrast(1.1) brightness(0.95);
-        }
+        /* =======================================
+           DOOR 4: THE VAULT (ARSENAL)
+        ======================================= */
+        .door-vault { display: flex; justify-content: center; align-items: center; }
+        .door-vault .vault-panel { position: absolute; top:0; width: 50vw; height: 100vh; background: radial-gradient(circle at center, #111, #000); pointer-events: auto; }
+        .vault-left { left: 0; border-right: 3px dashed var(--accent); }
+        .vault-right { right: 0; border-left: 3px dashed var(--accent); }
+        .vault-wheel { position: absolute; width: 250px; height: 250px; border-radius: 50%; border: 15px solid #222; background: #050505; z-index: 55; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 0 20px var(--accent); }
+        .vault-wheel::before { content:''; position:absolute; width: 90%; height: 90%; border-radius: 50%; border: 4px dashed var(--accent); animation: spin 10s linear infinite; }
+        .vault-wheel i { font-size: 5rem; color: var(--accent); text-shadow: 0 0 20px var(--accent); }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        .text-shukla {
-            position: absolute; bottom: 10%; width: 100%; text-align: center;
-            font-family: 'Anton', sans-serif; font-size: 22vw; line-height: 0.8;
-            color: var(--accent); z-index: 3; text-transform: uppercase; letter-spacing: -2px;
-            text-shadow: 0 10px 50px rgba(0, 229, 255, 0.5); opacity: 0;
-            background: linear-gradient(180deg, #00ffff 0%, #0088ff 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle-badge {
-            position: absolute; bottom: 25%; z-index: 10; background: var(--accent); color: #000;
-            font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(1rem, 2vw, 1.5rem);
-            letter-spacing: 6px; padding: 15px 40px; border-radius: 50px; text-transform: uppercase;
-            box-shadow: 0 15px 50px rgba(0, 229, 255, 0.8), inset 0 0 10px rgba(255,255,255,0.5);
-            opacity: 0; animation: badgeFloat 3s ease-in-out infinite alternate;
-        }
+        /* === INTERNAL SECTION CONTENTS === */
+        
+        /* 1. HERO CONTENT */
+        .hero { height: 100vh; width: 100vw; position: absolute; top:0; left:0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; }
+        .text-utkarsh { position: absolute; top: 15%; width: 100%; text-align: center; font-family: 'Anton', sans-serif; font-size: 22vw; line-height: 0.8; color: #ffffff; z-index: 1; text-transform: uppercase; letter-spacing: -2px; opacity: 0; }
+        .hero-image-box { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.2); width: 320px; height: 480px; z-index: 2; border-radius: 12px; border: 2px solid var(--accent); box-shadow: 0 0 80px rgba(0, 229, 255, 0.6), inset 0 0 30px rgba(0, 229, 255, 0.3); display: flex; align-items: flex-end; justify-content: center; opacity: 0; filter: brightness(3) blur(20px); }
+        .hero-image-box img.holographic-cutout { position: absolute; bottom: 0; left: 50%; width: 140%; height: auto; object-fit: cover; z-index: 5; transform: translateX(-50%); filter: drop-shadow(0 -10px 30px rgba(0, 229, 255, 0.5)); }
+        .text-shukla { position: absolute; bottom: 10%; width: 100%; text-align: center; font-family: 'Anton', sans-serif; font-size: 22vw; line-height: 0.8; color: var(--accent); z-index: 3; text-transform: uppercase; letter-spacing: -2px; opacity: 0; background: linear-gradient(180deg, #00ffff 0%, #0088ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtitle-badge { position: absolute; bottom: 25%; z-index: 10; background: var(--accent); color: #000; font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(1rem, 2vw, 1.5rem); letter-spacing: 6px; padding: 15px 40px; border-radius: 50px; opacity: 0; animation: badgeFloat 3s ease-in-out infinite alternate; }
         @keyframes badgeFloat { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-10px) scale(1.05); } }
 
-        @media (max-width: 768px) {
-            .text-utkarsh { top: 20%; font-size: 25vw; }
-            .text-shukla { bottom: 15%; font-size: 25vw; }
-            .hero-image-box { width: 240px; height: 360px; }
-            .hero-subtitle-badge { bottom: 28%; font-size: 0.9rem; padding: 10px 25px; letter-spacing: 4px; }
-        }
-
-        /* === ABOUT SECTION === */
-        .about-section {
-            min-height: 100vh; padding: 10rem 10vw; display: flex; flex-direction: column; justify-content: center;
-            position: relative; z-index: 5; background: linear-gradient(180deg, transparent 0%, #030610 100%);
-        }
+        /* 2. ABOUT CONTENT */
+        .about-content { width: 100%; height: 100vh; padding: 10rem 10vw; display: flex; flex-direction: column; justify-content: center; position: absolute; top:0; left:0; z-index: 10; background: #030610; }
         .section-tag { font-family: 'Anton', sans-serif; font-size: 1.2rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
         .section-tag::before { content: ''; display: inline-block; width: 40px; height: 2px; background: var(--accent); }
         .about-text { font-size: clamp(1.5rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.4; color: #fff; max-width: 1400px; }
         .about-text span { color: #445; transition: color 0.5s ease; }
         .about-highlight { color: var(--text) !important; text-shadow: 0 0 20px rgba(0, 229, 255, 0.5); }
 
-        @media (max-width: 768px) {
-            .about-section { padding: 6rem 5vw; }
-            .about-text { font-size: 1.8rem; line-height: 1.5; }
-        }
-
-        /* === HORIZONTAL SCROLL TIMELINE === */
-        .horizontal-section { overflow: hidden; position: relative; z-index: 5; background: #030610; }
-        .horizontal-wrapper { display: flex; width: 400vw; height: 100vh; }
+        /* 3. EXPERIENCE CONTENT (Horizontal) */
+        .horizontal-wrapper { display: flex; width: 400vw; height: 100vh; position: absolute; top:0; left:0; z-index: 10; background: #010205; }
         .panel { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 5vw; }
-
-        .exp-card { background: var(--glass); border: 1px solid var(--border); padding: 4rem; border-radius: 24px; width: 100%; max-width: 1000px; backdrop-filter: blur(15px); display: flex; flex-direction: column; gap: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
+        .exp-card { background: var(--glass); border: 1px solid var(--border); padding: 4rem; border-radius: 24px; width: 100%; max-width: 1000px; backdrop-filter: blur(15px); display: flex; flex-direction: column; gap: 1.5rem; position: relative; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
         .card-top-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; }
         .exp-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--accent), transparent); }
         .exp-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: -1rem; text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);}
@@ -273,118 +161,65 @@
         .exp-company { font-size: 1.2rem; color: var(--accent); font-weight: 600; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 1px;}
         .exp-desc { font-size: 1.15rem; line-height: 1.8; color: #99a; margin-top: 1rem;}
         .exp-desc strong { color: #fff; border-bottom: 1px solid var(--accent); }
-
-        @media (max-width: 768px) {
-            .horizontal-section { height: auto; overflow: visible; }
-            .horizontal-wrapper { width: 100vw; height: auto; flex-direction: column; }
-            .panel { width: 100vw; height: auto; min-height: 100vh; padding: 4rem 5vw; }
-            .exp-card { padding: 2rem; border-radius: 16px; }
-            .exp-year { font-size: 2.2rem; }
-            .exp-title { font-size: 1.8rem; }
-            .card-top-row { flex-direction: column; align-items: stretch; gap: 15px; }
-        }
-
-        /* 🚀 FLOATING BRAND LOGOS 🚀 */
-        .floating-brands { display: flex; gap: 40px; perspective: 1000px; padding-top: 10px; }
+        
+        .floating-brands { display: flex; gap: 40px; padding-top: 10px; }
         .brand-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .brand-float { width: 180px; height: auto; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; transition: all 0.3s ease; }
-        .brand-float img { width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease; }
-
-        .brand-container:nth-child(1) .brand-float { animation: floatLogo 4s ease-in-out infinite; }
-        .brand-container:nth-child(2) .brand-float { animation: floatLogo 5s ease-in-out infinite 2s; }
-        
+        .brand-float { width: 150px; height: auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; animation: floatLogo 4s ease-in-out infinite;}
+        .brand-float img { width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); }
         @keyframes floatLogo { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
-        
-        .brand-container:hover .brand-float { animation-play-state: paused; }
-        .brand-container:hover img { transform: scale(1.1) translateY(-5px); filter: drop-shadow(0 10px 25px rgba(0, 229, 255, 0.6)) brightness(1.2); }
+        .brand-link { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--accent); text-decoration: none; padding: 8px 20px; border-radius: 50px; background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); }
 
-        .brand-link { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--accent); text-decoration: none; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border-radius: 50px; background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); transition: all 0.3s ease; opacity: 0.8; display: flex; align-items: center; gap: 5px; }
-        .brand-link i { font-size: 1.1rem; }
-        .brand-container:hover .brand-link { background: var(--accent); color: #000; opacity: 1; box-shadow: 0 5px 20px rgba(0, 229, 255, 0.4); transform: translateY(-2px); }
-
-        @media (max-width: 768px) {
-            .floating-brands { width: 100%; justify-content: center; gap: 20px; margin-top: 15px;}
-            .brand-float { width: 120px; }
-            .brand-link { font-size: 0.7rem; padding: 6px 15px; }
-        }
-
-        /* === BENTO GRID SECTION === */
-        .bento-container { padding: 8rem 5vw; max-width: 1400px; margin: 0 auto; position: relative; z-index: 5; }
-        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; grid-auto-rows: minmax(180px, auto); }
-        .bento-box { background: rgba(10, 15, 30, 0.4); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; backdrop-filter: blur(10px); display: flex; flex-direction: column; justify-content: center; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
-        .bento-box:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15); }
+        /* 4. ARSENAL CONTENT */
+        .arsenal-content { width: 100%; height: 100vh; position: absolute; top:0; left:0; z-index: 10; background: #030610; padding: 4rem 5vw; display: flex; flex-direction: column; justify-content: center;}
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; grid-auto-rows: minmax(150px, auto); max-width: 1400px; margin: 0 auto; width: 100%;}
+        .bento-box { background: rgba(10, 15, 30, 0.4); border: 1px solid var(--border); border-radius: 24px; padding: 2rem; backdrop-filter: blur(10px); display: flex; flex-direction: column; justify-content: center; }
         .box-editing { grid-column: span 12; background: linear-gradient(135deg, rgba(0,229,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,229,255,0.4); }
         .box-media { grid-column: span 7; } .box-code { grid-column: span 5; } .box-projects { grid-column: span 6; } .box-education { grid-column: span 6; }
-        .bento-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
-        .bento-title i { color: var(--accent); font-size: 2rem; }
-        .pro-apps { display: flex; flex-wrap: wrap; gap: 20px; }
-        .app-card { display: flex; align-items: center; gap: 15px; background: #050a15; border: 1px solid #1a2540; padding: 1.2rem 2rem; border-radius: 16px; font-family: 'Anton', sans-serif; font-size: 1.5rem; letter-spacing: 1px; color: #fff; transition: all 0.3s ease; flex-grow: 1; justify-content: center; }
-        .app-card:hover { background: var(--accent); color: #000; box-shadow: 0 10px 30px rgba(0, 229, 255, 0.3); border-color: var(--accent); transform: scale(1.05); }
-        .tag-wrap { display: flex; flex-wrap: wrap; gap: 12px; }
-        .tag { padding: 10px 18px; border-radius: 8px; background: rgba(0,229,255,0.05); border: 1px solid rgba(0,229,255,0.2); font-size: 1rem; color: #ddd; font-weight: 500; }
-        .tag:hover { border-color: var(--accent); color: #000; background: var(--accent); }
-        .code-tag { padding: 8px 14px; border-radius: 6px; border: 1px dashed #445; color: #889; font-size: 0.9rem; font-family: monospace;}
-        .info-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
-        .info-list li h4 { color: var(--accent); font-size: 1.2rem; margin-bottom: 5px; font-weight: 700; }
-        .info-list li p { color: #99a; font-size: 0.95rem; line-height: 1.5; }
-        .info-list li span { display: block; font-size: 0.85rem; color: #556; margin-top: 5px; font-weight: 600;}
+        .bento-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 1rem; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .bento-title i { color: var(--accent); font-size: 1.8rem; }
+        .pro-apps { display: flex; flex-wrap: wrap; gap: 15px; }
+        .app-card { background: #050a15; border: 1px solid #1a2540; padding: 1rem 1.5rem; border-radius: 12px; font-family: 'Anton', sans-serif; font-size: 1.2rem; color: #fff; }
+        .tag-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { padding: 8px 15px; border-radius: 8px; background: rgba(0,229,255,0.05); border: 1px solid rgba(0,229,255,0.2); font-size: 0.9rem; color: #ddd; }
+        .code-tag { padding: 6px 12px; border-radius: 6px; border: 1px dashed #445; color: #889; font-size: 0.85rem; font-family: monospace;}
+        .info-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+        .info-list li h4 { color: var(--accent); font-size: 1.1rem; margin-bottom: 3px; }
+        .info-list li p { color: #99a; font-size: 0.9rem; }
 
-        @media (max-width: 992px) {
-            .box-media, .box-code, .box-projects, .box-education { grid-column: span 12; }
-            .bento-container { padding: 4rem 5vw; }
-            .bento-box { padding: 1.5rem; }
-        }
-
-        /* === FOOTER / CONTACT === */
+        /* FOOTER */
         .footer { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; background: #010205; border-top: 1px solid var(--border); z-index: 10; padding: 2rem 5vw;}
         .contact-label { color: var(--accent); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 2rem; font-family: 'Space Grotesk', sans-serif;}
         .huge-contact { font-family: 'Anton', sans-serif; font-size: clamp(3rem, 10vw, 8rem); color: var(--text); text-decoration: none; transition: all 0.3s; line-height: 1.1; }
         .huge-contact:hover { color: transparent; -webkit-text-stroke: 2px var(--accent); text-shadow: 0 0 30px rgba(0,229,255,0.3);}
         .social-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; margin-top: 2rem; }
-        .social-btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; text-decoration: none; color: #fff; background: rgba(255,255,255,0.05); border: 1px solid var(--border); transition: all 0.3s ease; }
-        .social-btn i { font-size: 1.5rem; }
-        .btn-whatsapp:hover { background: #25D366; color: #fff; border-color: #25D366; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
-        .btn-instagram:hover { background: #E1306C; color: #fff; border-color: #E1306C; box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3); }
-        .btn-linkedin:hover { background: #0077B5; color: #fff; border-color: #0077B5; box-shadow: 0 10px 30px rgba(0, 119, 181, 0.3); }
+        .social-btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; text-decoration: none; color: #fff; background: rgba(255,255,255,0.05); border: 1px solid var(--border); }
         .footer-details { display: flex; gap: 2rem; font-size: 1.1rem; color: #889; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;}
-        .footer-item { display: flex; align-items: center; gap: 10px; background: var(--glass); padding: 12px 25px; border-radius: 50px; border: 1px solid var(--border); color: #ddd; font-weight: 500;}
+        .footer-item { display: flex; align-items: center; gap: 10px; background: var(--glass); padding: 12px 25px; border-radius: 50px; border: 1px solid var(--border); color: #ddd; }
         .footer-item i { color: var(--accent); font-size: 1.3rem;}
-        .ai-widget-btn { display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, rgba(0,229,255,0.15) 0%, rgba(0,229,255,0.05) 100%); border: 1px solid var(--accent); color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 600; padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 0 20px rgba(0,229,255,0.1); }
-        .ai-widget-btn:hover { background: var(--accent); color: #000000; box-shadow: 0 0 40px var(--accent); transform: translateY(-3px); }
-        .magnetic-wrap { display: inline-block; }
 
+        /* MOBILE FIXES TO ENSURE IT WORKS EVERYWHERE */
+        @media (max-width: 992px) {
+            .box-media, .box-code, .box-projects, .box-education { grid-column: span 12; }
+            .arsenal-content { height: auto; min-height: 100vh; position: relative; padding-top: 8rem;}
+            .door-vault { position: fixed; } /* Keeps door pinned while content scrolls behind if needed, handled by GSAP */
+        }
         @media (max-width: 768px) {
-            .social-btn { padding: 12px 20px; font-size: 1rem; }
-            .footer-item { padding: 10px 15px; font-size: 0.9rem; }
+            .text-utkarsh, .text-shukla { font-size: 25vw; }
+            .hero-image-box { width: 240px; height: 360px; }
+            .about-content { height: auto; min-height: 100vh; padding: 6rem 5vw; position: relative;}
+            .horizontal-wrapper { width: 100vw; height: auto; position: relative; flex-direction: column; }
+            .panel { height: auto; min-height: 100vh; padding: 4rem 5vw; }
+            .exp-card { padding: 2rem; }
+            .exp-year { font-size: 2.2rem; }
+            .card-top-row { flex-direction: column; }
         }
     </style>
 </head>
 <body class="no-scroll">
 
-    <!-- 🌩️ THUNDERSTORM PRELOADER 🌩️ -->
+    <!-- 🌩️ PRELOADER 🌩️ -->
     <div id="thunder-preloader">
         <h1 class="loading-text">PORTFOLIO LOADING</h1>
-    </div>
-
-    <!-- 🚀 GATES OF HEAVEN (SWARG KE DARWAZE) OVERLAY 🚀 -->
-    <div class="heaven-gates" id="heaven-gates">
-        <!-- Left Door -->
-        <div class="gate-door gate-left gsap-gate-left">
-            <div class="gate-arch"></div>
-        </div>
-        <!-- Right Door -->
-        <div class="gate-door gate-right gsap-gate-right">
-            <div class="gate-arch"></div>
-        </div>
-        
-        <!-- Center Floating Text -->
-        <div class="gate-content prevent-select">
-            <h1 class="welcome-text">Welcome To <br><span>My World</span></h1>
-            <div class="scroll-indicator">
-                Scroll To Open
-                <div class="scroll-line"></div>
-            </div>
-        </div>
     </div>
 
     <!-- Background Canvases -->
@@ -396,38 +231,70 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <!-- MAIN SCROLLING CONTENT -->
     <main id="main-content">
         
-        <!-- SCROLL 1: THE DIVINE REVEAL (HERO) -->
-        <section class="hero prevent-select" id="hero-main">
-            
-            <div class="text-utkarsh gsap-title-left">UTKARSH</div>
-            
-            <!-- Glowing Box with Cutout -->
-            <div class="hero-image-box gsap-hero-img-box">
-                <img src="cutout.png" alt="Utkarsh Shukla" class="gsap-hero-img holographic-cutout">
+        <!-- ==========================================
+             SECTION 1: HERO (DOOR: GATES OF HEAVEN)
+             ========================================== -->
+        <section class="section-wrapper" id="sec-hero">
+            <!-- The Door -->
+            <div class="door-overlay door-heaven">
+                <div class="gate gate-left hd-left"><div class="gate-arch"></div></div>
+                <div class="gate gate-right hd-right"><div class="gate-arch"></div></div>
             </div>
-
-            <div class="text-shukla gsap-title-right">SHUKLA</div>
-
-            <div class="hero-subtitle-badge gsap-badge">CONTENT STRATEGIST</div>
-            
+            <div class="door-text-container ht-text">
+                <h1 class="door-label">Welcome To <br><span>My World</span></h1>
+                <div class="scroll-down-indicator">Scroll To Open<div class="scroll-line"></div></div>
+            </div>
+            <!-- The Content -->
+            <div class="hero">
+                <div class="text-utkarsh hc-title-l">UTKARSH</div>
+                <div class="hero-image-box hc-img-box">
+                    <img src="cutout.png" alt="Utkarsh Shukla" class="gsap-hero-img holographic-cutout">
+                </div>
+                <div class="text-shukla hc-title-r">SHUKLA</div>
+                <div class="hero-subtitle-badge hc-badge">CONTENT STRATEGIST</div>
+            </div>
         </section>
 
-        <!-- SCROLL 2: THE STRATEGIST -->
-        <section class="about-section" id="about-section">
-            <div class="section-tag">01 // THE STRATEGIST</div>
-            <p class="about-text" id="split-text">
-                Content strategist and social media manager with hands-on experience writing and performing scripts for short-form video across brand accounts, paired with a BSc in Information Technology. Currently drive content strategy, reel scriptwriting, and on-camera presenting for eSamparkTech Solutions and MEDH, while running freelance social media editing on the side and volunteering on real brand campaigns. Backed by a technical foundation in web development and journalism-grade research and fact-checking — looking to grow into a full-time content and social role where storytelling, strategy, and technical fluency come together.
-            </p>
+        <!-- ==========================================
+             SECTION 2: ABOUT (DOOR: INDUSTRIAL SHUTTER)
+             ========================================== -->
+        <section class="section-wrapper" id="sec-about">
+            <!-- The Door -->
+            <div class="door-overlay door-shutter">
+                <div class="shutter-panel shutter-top ad-top"></div>
+                <div class="shutter-panel shutter-bottom ad-bot"></div>
+            </div>
+            <div class="door-text-container at-text">
+                <h1 class="door-label">The <span>Strategist</span></h1>
+                <div class="scroll-down-indicator">Unlock Profile<div class="scroll-line"></div></div>
+            </div>
+            <!-- The Content -->
+            <div class="about-content">
+                <div class="section-tag">01 // PROFILE</div>
+                <p class="about-text" id="split-text">
+                    Content strategist and social media manager with hands-on experience writing and performing scripts for short-form video across brand accounts, paired with a BSc in Information Technology. Currently drive content strategy, reel scriptwriting, and on-camera presenting for eSamparkTech Solutions and MEDH, while running freelance social media editing on the side and volunteering on real brand campaigns. Backed by a technical foundation in web development and journalism-grade research and fact-checking — looking to grow into a full-time content and social role where storytelling, strategy, and technical fluency come together.
+                </p>
+            </div>
         </section>
 
-        <!-- SCROLL 3: HORIZONTAL TIMELINE -->
-        <section class="horizontal-section" id="experience-section">
+        <!-- ==========================================
+             SECTION 3: EXPERIENCE (DOOR: CYBER BLAST DOORS)
+             ========================================== -->
+        <section class="section-wrapper" id="sec-experience">
+            <!-- The Door -->
+            <div class="door-overlay door-blast">
+                <div class="blast-panel blast-left ed-left"></div>
+                <div class="blast-panel blast-right ed-right"></div>
+            </div>
+            <div class="door-text-container et-text">
+                <h1 class="door-label">Mission <span>Logs</span></h1>
+                <div class="scroll-down-indicator">Breach Doors<div class="scroll-line"></div></div>
+            </div>
+            <!-- The Content -->
             <div class="horizontal-wrapper">
-                
-                <div class="panel">
+                <div class="panel pnl-1">
                     <div class="exp-card">
                         <div class="card-top-row">
                             <div>
@@ -437,23 +304,13 @@
                                 <div class="exp-company">eSamparkTech Solutions & MEDH</div>
                             </div>
                             <div class="floating-brands">
-                                <!-- eSampark Block -->
                                 <div class="brand-container">
-                                    <div class="brand-float">
-                                        <img src="esampark-logo.png" alt="eSampark Logo">
-                                    </div>
-                                    <a href="https://esampark.biz/" target="_blank" class="brand-link">
-                                        esampark.biz <i class="ri-external-link-line"></i>
-                                    </a>
+                                    <div class="brand-float"><img src="esampark-logo.png" alt="eSampark Logo"></div>
+                                    <a href="https://esampark.biz/" target="_blank" class="brand-link">esampark.biz</a>
                                 </div>
-                                <!-- MEDH Block -->
                                 <div class="brand-container">
-                                    <div class="brand-float">
-                                        <img src="medh-logo.png" alt="MEDH Logo">
-                                    </div>
-                                    <a href="https://medh.co/" target="_blank" class="brand-link">
-                                        medh.co <i class="ri-external-link-line"></i>
-                                    </a>
+                                    <div class="brand-float"><img src="medh-logo.png" alt="MEDH Logo"></div>
+                                    <a href="https://medh.co/" target="_blank" class="brand-link">medh.co</a>
                                 </div>
                             </div>
                         </div>
@@ -465,7 +322,7 @@
                     </div>
                 </div>
 
-                <div class="panel">
+                <div class="panel pnl-2">
                     <div class="exp-card">
                         <i class="ri-clapperboard-fill exp-icon"></i>
                         <div class="exp-year">AUG 2024 - PRESENT</div>
@@ -479,7 +336,7 @@
                     </div>
                 </div>
 
-                <div class="panel">
+                <div class="panel pnl-3">
                     <div class="exp-card">
                         <i class="ri-mic-2-fill exp-icon"></i>
                         <div class="exp-year">FEB 2025 - FEB 2026</div>
@@ -493,7 +350,7 @@
                     </div>
                 </div>
 
-                <div class="panel">
+                <div class="panel pnl-4">
                     <div class="exp-card">
                         <i class="ri-code-box-fill exp-icon"></i>
                         <div class="exp-year">JUN 2024 - AUG 2024</div>
@@ -504,88 +361,73 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- SCROLL 4: BENTO GRID -->
-        <section class="bento-container" id="arsenal">
-            <div class="section-tag" style="justify-content: center; margin-bottom: 2rem;">02 // THE ARSENAL</div>
-            
-            <div class="bento-grid">
-                <div class="bento-box box-editing gsap-fade-up">
-                    <div class="bento-title"><i class="ri-film-fill"></i> Master Post-Production Suite</div>
-                    <div class="pro-apps">
-                        <div class="app-card">DaVinci Resolve</div>
-                        <div class="app-card">Premiere Pro</div>
-                        <div class="app-card">After Effects</div>
-                        <div class="app-card">CapCut Pro</div>
+        <!-- ==========================================
+             SECTION 4: ARSENAL (DOOR: THE VAULT)
+             ========================================== -->
+        <section class="section-wrapper" id="sec-arsenal">
+            <!-- The Door -->
+            <div class="door-overlay door-vault">
+                <div class="vault-panel vault-left vd-left"></div>
+                <div class="vault-panel vault-right vd-right"></div>
+                <div class="vault-wheel vd-wheel"><i class="ri-lock-password-fill"></i></div>
+            </div>
+            <div class="door-text-container vt-text" style="top: -150px;">
+                <h1 class="door-label">The <span>Arsenal</span></h1>
+            </div>
+            <!-- The Content -->
+            <div class="arsenal-content">
+                <div class="bento-grid">
+                    <div class="bento-box box-editing bento-item">
+                        <div class="bento-title"><i class="ri-film-fill"></i> Master Post-Production Suite</div>
+                        <div class="pro-apps">
+                            <div class="app-card">DaVinci Resolve</div>
+                            <div class="app-card">Premiere Pro</div>
+                            <div class="app-card">After Effects</div>
+                            <div class="app-card">CapCut Pro</div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="bento-box box-media gsap-fade-up">
-                    <div class="bento-title"><i class="ri-quill-pen-fill"></i> Content & Strategy</div>
-                    <div class="tag-wrap">
-                        <span class="tag">Reel Scriptwriting</span>
-                        <span class="tag">On-Camera Presenting</span>
-                        <span class="tag">Campaign Strategy</span>
-                        <span class="tag">Brand Growth</span>
-                        <span class="tag">Fact-Checking</span>
-                        <span class="tag">Field Reporting</span>
-                        <span class="tag">UI/UX & Graphic Design</span>
-                        <span class="tag">Videography & Photography</span>
+                    <div class="bento-box box-media bento-item">
+                        <div class="bento-title"><i class="ri-quill-pen-fill"></i> Content & Strategy</div>
+                        <div class="tag-wrap">
+                            <span class="tag">Reel Scriptwriting</span>
+                            <span class="tag">On-Camera Presenting</span>
+                            <span class="tag">Campaign Strategy</span>
+                            <span class="tag">Brand Growth</span>
+                            <span class="tag">Fact-Checking</span>
+                            <span class="tag">Field Reporting</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="bento-box box-code gsap-fade-up">
-                    <div class="bento-title"><i class="ri-terminal-box-line" style="color: #666;"></i> Web & Tech Stack</div>
-                    <div class="tag-wrap">
-                        <span class="code-tag">Python & C</span>
-                        <span class="code-tag">JavaScript</span>
-                        <span class="code-tag">React Native</span>
-                        <span class="code-tag">HTML/CSS/PHP</span>
-                        <span class="code-tag">MySQL & MongoDB</span>
-                        <span class="code-tag">Flutter SDK</span>
-                        <span class="code-tag">WordPress</span>
-                        <span class="code-tag">Git/GitHub</span>
+                    <div class="bento-box box-code bento-item">
+                        <div class="bento-title"><i class="ri-terminal-box-line" style="color: #666;"></i> Web & Tech Stack</div>
+                        <div class="tag-wrap">
+                            <span class="code-tag">Python & C</span>
+                            <span class="code-tag">JavaScript</span>
+                            <span class="code-tag">React Native</span>
+                            <span class="code-tag">HTML/CSS/PHP</span>
+                            <span class="code-tag">MySQL & MongoDB</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="bento-box box-projects gsap-fade-up">
-                    <div class="bento-title"><i class="ri-folder-add-fill"></i> Dev Projects</div>
-                    <ul class="info-list">
-                        <li>
-                            <h4>Pawfect Buddy</h4>
-                            <p>Complete pet care & shop management web app connecting owners and vendors.</p>
-                        </li>
-                        <li>
-                            <h4>Library Book Management</h4>
-                            <p>Digital system for managing records efficiently.</p>
-                        </li>
-                        <li>
-                            <h4>Responsive Web Design & Duck Jump Game</h4>
-                            <p>Mobile-friendly interface and simple interactive game built using core logic.</p>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="bento-box box-projects bento-item">
+                        <div class="bento-title"><i class="ri-folder-add-fill"></i> Dev Projects</div>
+                        <ul class="info-list">
+                            <li><h4>Pawfect Buddy</h4><p>Complete pet care web app connecting owners and vendors.</p></li>
+                            <li><h4>Library Book Management</h4><p>Digital system for managing records efficiently.</p></li>
+                        </ul>
+                    </div>
 
-                <div class="bento-box box-education gsap-fade-up">
-                    <div class="bento-title"><i class="ri-graduation-cap-fill"></i> Education & Credentials</div>
-                    <ul class="info-list">
-                        <li>
-                            <h4>BSc Information Technology</h4>
-                            <p>Thakur College of Science and Commerce</p>
-                            <span>SGPA 7.30 | 2021 — 2024</span>
-                        </li>
-                        <li>
-                            <h4>Secondary (XII) & Schooling (X)</h4>
-                            <p>Adarsh Education Society (78.0%) | St Willibrords Innovative School (64.80%)</p>
-                        </li>
-                        <li>
-                            <h4>Certifications</h4>
-                            <p>The Complete Python Developer (Udemy) • Graphic Designing (Thakur College) • Ethical Hacking Level 1 (MrWebsecure)</p>
-                        </li>
-                    </ul>
+                    <div class="bento-box box-education bento-item">
+                        <div class="bento-title"><i class="ri-graduation-cap-fill"></i> Education</div>
+                        <ul class="info-list">
+                            <li><h4>BSc Information Technology</h4><p>Thakur College of Science and Commerce (SGPA 7.30)</p></li>
+                            <li><h4>Certifications</h4><p>The Complete Python Developer (Udemy) • Ethical Hacking Level 1</p></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -596,137 +438,52 @@
             <div class="magnetic-wrap">
                 <a href="mailto:utkarshshukla0327@gmail.com" class="huge-contact">Let's Connect</a>
             </div>
-            
             <div class="social-container">
-                <div class="magnetic-wrap"><a href="https://wa.me/919764979543" target="_blank" class="social-btn btn-whatsapp"><i class="ri-whatsapp-fill"></i> +91 9764979543</a></div>
-                <div class="magnetic-wrap"><a href="https://instagram.com/utkarshshukla____" target="_blank" class="social-btn btn-instagram"><i class="ri-instagram-fill"></i> @utkarshshukla____</a></div>
-                <div class="magnetic-wrap"><a href="https://linkedin.com/in/utkarshshukla" target="_blank" class="social-btn btn-linkedin"><i class="ri-linkedin-fill"></i> LinkedIn</a></div>
-            </div>
-
-            <div class="footer-details">
-                <a href="mailto:utkarshshukla0327@gmail.com" style="text-decoration: none;">
-                    <div class="footer-item magnetic-wrap"><i class="ri-mail-send-fill"></i> utkarshshukla0327@gmail.com</div>
-                </a>
-                <div class="footer-item magnetic-wrap"><i class="ri-map-pin-fill"></i> Dadar (W), Mumbai 400028</div>
-            </div>
-            
-            <div class="magnetic-wrap">
-                <button id="omni-open-widget-btn" class="ai-widget-btn" style="cursor: none; outline: none;">
-                    <i class="ri-robot-2-fill"></i> Open Utkarsh Assistant Widget
-                </button>
+                <div class="magnetic-wrap"><a href="https://wa.me/919764979543" target="_blank" class="social-btn" style="background:#25D366"><i class="ri-whatsapp-fill"></i> +91 9764979543</a></div>
+                <div class="magnetic-wrap"><a href="https://instagram.com/utkarshshukla____" target="_blank" class="social-btn" style="background:#E1306C"><i class="ri-instagram-fill"></i> Instagram</a></div>
+                <div class="magnetic-wrap"><a href="https://linkedin.com/in/utkarshshukla" target="_blank" class="social-btn" style="background:#0077B5"><i class="ri-linkedin-fill"></i> LinkedIn</a></div>
             </div>
         </footer>
 
     </main>
 
-    <!-- 🚀 SMOKE EFFECT SCRIPT 🚀 -->
+    <!-- CANVAS EFFECTS SCRIPTS -->
     <script>
         const smokeCanvas = document.getElementById('smoke-canvas');
         const sCtx = smokeCanvas.getContext('2d');
-        smokeCanvas.width = window.innerWidth;
-        smokeCanvas.height = window.innerHeight;
-
+        smokeCanvas.width = window.innerWidth; smokeCanvas.height = window.innerHeight;
         let smokeArray = [];
         class SmokeParticle {
-            constructor() {
-                this.x = Math.random() * smokeCanvas.width;
-                this.y = smokeCanvas.height + Math.random() * 100; 
-                this.size = Math.random() * 80 + 30; 
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1.5 + 0.5; 
-                this.opacity = Math.random() * 0.15 + 0.02;
-                this.hue = 180 + Math.random() * 30; 
-            }
-            update() {
-                this.x += this.speedX; this.y -= this.speedY; this.size += 0.1; 
-                if (this.y < -this.size) {
-                    this.y = smokeCanvas.height + this.size;
-                    this.x = Math.random() * smokeCanvas.width;
-                    this.size = Math.random() * 80 + 30;
-                }
-            }
-            draw() {
-                sCtx.beginPath(); sCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                let gradient = sCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-                gradient.addColorStop(0, `hsla(${this.hue}, 100%, 50%, ${this.opacity})`);
-                gradient.addColorStop(1, `hsla(${this.hue}, 100%, 50%, 0)`);
-                sCtx.fillStyle = gradient; sCtx.fill();
-            }
+            constructor() { this.x = Math.random() * smokeCanvas.width; this.y = smokeCanvas.height + Math.random() * 100; this.size = Math.random() * 80 + 30; this.speedX = Math.random() * 1 - 0.5; this.speedY = Math.random() * 1.5 + 0.5; this.opacity = Math.random() * 0.15 + 0.02; this.hue = 180 + Math.random() * 30; }
+            update() { this.x += this.speedX; this.y -= this.speedY; this.size += 0.1; if (this.y < -this.size) { this.y = smokeCanvas.height + this.size; this.x = Math.random() * smokeCanvas.width; this.size = Math.random() * 80 + 30; } }
+            draw() { sCtx.beginPath(); sCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2); let gradient = sCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size); gradient.addColorStop(0, `hsla(${this.hue}, 100%, 50%, ${this.opacity})`); gradient.addColorStop(1, `hsla(${this.hue}, 100%, 50%, 0)`); sCtx.fillStyle = gradient; sCtx.fill(); }
         }
-        function initSmoke() {
-            smokeArray = []; for (let i = 0; i < 40; i++) smokeArray.push(new SmokeParticle());
-        }
-        function animateSmoke() {
-            sCtx.clearRect(0, 0, smokeCanvas.width, smokeCanvas.height);
-            for (let i = 0; i < smokeArray.length; i++) { smokeArray[i].update(); smokeArray[i].draw(); }
-            requestAnimationFrame(animateSmoke);
-        }
-        window.addEventListener('resize', () => { smokeCanvas.width = window.innerWidth; smokeCanvas.height = window.innerHeight; initSmoke(); });
-        initSmoke(); animateSmoke();
-    </script>
+        for (let i = 0; i < 40; i++) smokeArray.push(new SmokeParticle());
+        function animateSmoke() { sCtx.clearRect(0, 0, smokeCanvas.width, smokeCanvas.height); for (let i = 0; i < smokeArray.length; i++) { smokeArray[i].update(); smokeArray[i].draw(); } requestAnimationFrame(animateSmoke); }
+        animateSmoke();
 
-    <!-- 🚀 PERFECT GLITTER LINE TRAIL 🚀 -->
-    <script>
         const glitterCanvas = document.getElementById('glitter-canvas');
         const gCtx = glitterCanvas.getContext('2d');
-        glitterCanvas.width = window.innerWidth;
-        glitterCanvas.height = window.innerHeight;
-
+        glitterCanvas.width = window.innerWidth; glitterCanvas.height = window.innerHeight;
         let glitterArray = [];
-
         class GlitterParticle {
-            constructor(x, y) {
-                this.x = x + (Math.random() * 4 - 2);
-                this.y = y + (Math.random() * 4 - 2);
-                this.size = Math.random() * 2 + 1.5; 
-                this.speedX = Math.random() * 0.5 - 0.25; 
-                this.speedY = Math.random() * 0.5 - 0.25;
-                this.color = '#00e5ff'; 
-                this.life = 100; 
-            }
-            update() {
-                this.x += this.speedX; this.y += this.speedY;
-                this.life -= 4; 
-                if (this.size > 0.1) this.size -= 0.05; 
-            }
-            draw() {
-                gCtx.save(); gCtx.globalAlpha = Math.max(0, this.life / 100);
-                gCtx.beginPath(); gCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                gCtx.fillStyle = this.color;
-                gCtx.shadowBlur = 15; gCtx.shadowColor = '#00e5ff';
-                gCtx.fill(); gCtx.restore();
-            }
+            constructor(x, y) { this.x = x + (Math.random() * 4 - 2); this.y = y + (Math.random() * 4 - 2); this.size = Math.random() * 2 + 1.5; this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25; this.color = '#00e5ff'; this.life = 100; }
+            update() { this.x += this.speedX; this.y += this.speedY; this.life -= 4; if (this.size > 0.1) this.size -= 0.05; }
+            draw() { gCtx.save(); gCtx.globalAlpha = Math.max(0, this.life / 100); gCtx.beginPath(); gCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2); gCtx.fillStyle = this.color; gCtx.shadowBlur = 15; gCtx.shadowColor = '#00e5ff'; gCtx.fill(); gCtx.restore(); }
         }
-
-        window.addEventListener('mousemove', (e) => {
-            for (let i = 0; i < 2; i++) { 
-                glitterArray.push(new GlitterParticle(e.clientX, e.clientY));
-            }
-        });
-
-        window.addEventListener('touchmove', (e) => {
-            if(e.touches.length > 0){
-                for (let i = 0; i < 2; i++) { 
-                    glitterArray.push(new GlitterParticle(e.touches[0].clientX, e.touches[0].clientY));
-                }
-            }
-        });
-
-        function animateGlitter() {
-            gCtx.clearRect(0, 0, glitterCanvas.width, glitterCanvas.height);
-            for (let i = 0; i < glitterArray.length; i++) {
-                glitterArray[i].update(); glitterArray[i].draw();
-                if (glitterArray[i].life <= 0) { glitterArray.splice(i, 1); i--; }
-            }
-            requestAnimationFrame(animateGlitter);
-        }
-        window.addEventListener('resize', () => { glitterCanvas.width = window.innerWidth; glitterCanvas.height = window.innerHeight; });
+        window.addEventListener('mousemove', (e) => { for (let i = 0; i < 2; i++) glitterArray.push(new GlitterParticle(e.clientX, e.clientY)); });
+        function animateGlitter() { gCtx.clearRect(0, 0, glitterCanvas.width, glitterCanvas.height); for (let i = 0; i < glitterArray.length; i++) { glitterArray[i].update(); glitterArray[i].draw(); if (glitterArray[i].life <= 0) { glitterArray.splice(i, 1); i--; } } requestAnimationFrame(animateGlitter); }
         animateGlitter();
+        
+        window.addEventListener('resize', () => { 
+            smokeCanvas.width = window.innerWidth; smokeCanvas.height = window.innerHeight; 
+            glitterCanvas.width = window.innerWidth; glitterCanvas.height = window.innerHeight;
+        });
     </script>
 
-    <!-- 🚀 CINEMATIC GSAP ANIMATIONS 🚀 -->
+    <!-- 🚀 THE ULTIMATE MULTI-DOOR GSAP LOGIC 🚀 -->
     <script>
-        // 🌩️ NEW: Thunder Preloader Removal Logic 🌩️
+        // 🌩️ Preloader Logic
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const preloader = document.getElementById('thunder-preloader');
@@ -734,123 +491,92 @@
                     preloader.style.opacity = '0';
                     setTimeout(() => {
                         preloader.remove();
-                        // Allow scrolling now
                         document.body.classList.remove('no-scroll');
-                        // Refresh GSAP ScrollTrigger to prevent weird positioning after scroll is unlocked
                         ScrollTrigger.refresh();
                     }, 500);
                 }
-            }, 2500); // 2.5 seconds wait
+            }, 2500); 
         });
 
+        // Custom Cursor
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
-
         window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX; const posY = e.clientY;
-            if(cursorDot) { cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`; }
-            if(cursorOutline) { cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 300, fill: "forwards" }); }
-        });
-
-        const hoverElements = document.querySelectorAll('a, button, .magnetic-wrap, .app-card, .tag, .brand-link');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                if(cursorOutline) {
-                    cursorOutline.style.width = '60px'; cursorOutline.style.height = '60px';
-                    cursorOutline.style.backgroundColor = 'rgba(0, 240, 255, 0.15)';
-                }
-            });
-            el.addEventListener('mouseleave', () => {
-                if(cursorOutline) {
-                    cursorOutline.style.width = '40px'; cursorOutline.style.height = '40px';
-                    cursorOutline.style.backgroundColor = 'transparent';
-                }
-            });
+            if(cursorDot) { cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`; }
+            if(cursorOutline) { cursorOutline.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 300, fill: "forwards" }); }
         });
 
         gsap.registerPlugin(ScrollTrigger);
 
         document.addEventListener("DOMContentLoaded", () => {
             
-            // 🎬 THE GRAND "SWARG KA DARWAZA" REVEAL ANIMATION 🎬
-            let introTimeline = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#hero-main",
-                    start: "top top",
-                    end: "+=1800",
-                    scrub: 1.5,
-                    pin: true
-                }
-            });
+            let isMobile = window.matchMedia("(max-width: 768px)").matches;
+            
+            // 🎬 DOOR 1: GATES OF HEAVEN (HERO)
+            let heroTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-hero", start: "top top", end: "+=1500", scrub: 1, pin: true } });
+            heroTl.to(".ht-text", { scale: 1.5, opacity: 0, duration: 1 })
+                  .to(".hd-left", { xPercent: -100, duration: 2, ease: "power2.inOut" }, "-=0.5")
+                  .to(".hd-right", { xPercent: 100, duration: 2, ease: "power2.inOut" }, "<")
+                  .to(".hc-img-box", { scale: 1, opacity: 1, filter: "brightness(1) blur(0px)", duration: 1.5 }, "-=1")
+                  .to(".hc-title-l", { x: 0, opacity: 1, duration: 1 }, "-=1")
+                  .to(".hc-title-r", { x: 0, opacity: 1, duration: 1 }, "<")
+                  .to(".hc-badge", { y: 0, opacity: 1, duration: 1 }, "-=0.5");
 
-            introTimeline
-                .to(".gate-content", { scale: 1.5, opacity: 0, duration: 2, ease: "power2.in" })
-                .to(".gsap-gate-left", { xPercent: -100, duration: 4, ease: "power3.inOut", boxShadow: "50px 0 100px rgba(0,229,255,0.8)" }, "-=0.5")
-                .to(".gsap-gate-right", { xPercent: 100, duration: 4, ease: "power3.inOut", boxShadow: "-50px 0 100px rgba(0,229,255,0.8)" }, "-=4")
-                .to(".gsap-hero-img-box", { scale: 1, opacity: 1, filter: "brightness(1) blur(0px)", duration: 3, ease: "power4.out" }, "-=2.5")
-                .to(".gsap-title-left", { x: 0, opacity: 1, duration: 2, ease: "power3.out" }, "-=2")
-                .to(".gsap-title-right", { x: 0, opacity: 1, duration: 2, ease: "power3.out" }, "-=2")
-                .to(".gsap-badge", { y: 0, opacity: 1, duration: 1.5, ease: "back.out(1.7, 1)" }, "-=1");
-
-            gsap.to(".gsap-hero-img", {
-                y: -15, duration: 2.5, repeat: -1, yoyo: true, ease: "sine.inOut"
-            });
-
+            // Split Text Logic for About
             const text = document.getElementById("split-text");
             if(text) {
                 const words = text.innerText.split(" ");
                 text.innerHTML = "";
-                words.forEach(word => {
-                    let span = document.createElement("span");
-                    span.innerText = word + " ";
-                    text.appendChild(span);
-                });
-
-                gsap.fromTo("#split-text span", 
-                    { opacity: 0.1, y: 20 },
-                    { opacity: 1, y: 0, stagger: 0.05, ease: "power2.out", scrollTrigger: { trigger: ".about-section", start: "top 70%", end: "bottom 60%", scrub: 1 } }
-                );
-
-                const spans = document.querySelectorAll("#split-text span");
-                spans.forEach(span => {
-                    const w = span.innerText.trim().toLowerCase();
-                    if (['scripts', 'video', 'editing', 'strategy,', 'storytelling,'].includes(w)) {
-                        span.classList.add('about-highlight');
-                    }
+                words.forEach(word => { let span = document.createElement("span"); span.innerText = word + " "; text.appendChild(span); });
+                document.querySelectorAll("#split-text span").forEach(span => {
+                    if (['scripts', 'video', 'editing', 'strategy,', 'storytelling,'].includes(span.innerText.trim().toLowerCase())) { span.classList.add('about-highlight'); }
                 });
             }
 
-            let isMobile = window.matchMedia("(max-width: 768px)").matches;
+            // 🎬 DOOR 2: INDUSTRIAL SHUTTER (ABOUT)
+            // On mobile we don't pin the section itself for height reasons, just trigger normally
+            let aboutPinParams = isMobile ? false : true;
+            let aboutEndParams = isMobile ? "bottom top" : "+=1500";
+            
+            let aboutTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-about", start: "top top", end: aboutEndParams, scrub: 1, pin: aboutPinParams } });
+            aboutTl.to(".at-text", { opacity: 0, y: -50, duration: 1 })
+                   .to(".ad-top", { yPercent: -100, duration: 2, ease: "power3.inOut" }, "-=0.5")
+                   .to(".ad-bot", { yPercent: 100, duration: 2, ease: "power3.inOut" }, "<")
+                   .fromTo("#split-text span", { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.05, duration: 2 }, "-=1");
 
+            // 🎬 DOOR 3: CYBER BLAST DOORS (EXPERIENCE)
             if(!isMobile) {
-                const horizontalWrapper = document.querySelector('.horizontal-wrapper');
+                const hWrapper = document.querySelector('.horizontal-wrapper');
                 const panels = gsap.utils.toArray('.panel');
-
-                if(horizontalWrapper && panels.length > 0) {
-                    gsap.to(panels, {
-                        xPercent: -100 * (panels.length - 1), ease: "none",
-                        scrollTrigger: { 
-                            trigger: ".horizontal-section", 
-                            pin: true, 
-                            scrub: 1, 
-                            snap: 1 / (panels.length - 1), 
-                            end: () => "+=" + horizontalWrapper.offsetWidth 
-                        }
-                    });
-                }
+                
+                let expTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-experience", start: "top top", end: () => "+=" + (hWrapper.offsetWidth + 1000), scrub: 1, pin: true } });
+                
+                expTl.to(".et-text", { scale: 1.5, opacity: 0, duration: 1 })
+                     .to(".ed-left", { xPercent: -100, duration: 2, ease: "power4.inOut" }, "-=0.5")
+                     .to(".ed-right", { xPercent: 100, duration: 2, ease: "power4.inOut" }, "<")
+                     // Once doors open, start the horizontal scroll
+                     .to(panels, { xPercent: -100 * (panels.length - 1), ease: "none", duration: 5 }, "+=0.5");
             } else {
-                gsap.utils.toArray('.exp-card').forEach(card => {
-                    gsap.from(card, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 85%" } });
-                });
+                // Mobile fallback for Blast Doors (Just open them and let user scroll vertically)
+                let expTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-experience", start: "top top", end: "+=500", scrub: 1 } });
+                expTl.to(".et-text", { opacity: 0 }).to(".ed-left", { xPercent: -100 }, "<").to(".ed-right", { xPercent: 100 }, "<");
             }
 
-            gsap.utils.toArray('.gsap-fade-up').forEach(box => {
-                gsap.from(box, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: box, start: "top 85%" } });
-            });
+            // 🎬 DOOR 4: THE VAULT (ARSENAL)
+            let arsenalPin = isMobile ? false : true;
+            let arsenalEnd = isMobile ? "bottom top" : "+=1500";
 
+            let arsenalTl = gsap.timeline({ scrollTrigger: { trigger: "#sec-arsenal", start: "top top", end: arsenalEnd, scrub: 1, pin: arsenalPin } });
+            
+            arsenalTl.to(".vd-wheel", { rotation: 360, scale: 3, opacity: 0, duration: 1.5, ease: "power2.in" })
+                     .to(".vt-text", { opacity: 0, duration: 0.5 }, "<")
+                     .to(".vd-left", { xPercent: -100, duration: 2, ease: "power3.inOut" }, "-=0.5")
+                     .to(".vd-right", { xPercent: 100, duration: 2, ease: "power3.inOut" }, "<")
+                     .from(".bento-item", { y: 100, opacity: 0, stagger: 0.1, duration: 1.5, ease: "back.out(1.5)" }, "-=1");
+
+            // Magnetic Buttons (Desktop only)
             if(!isMobile) {
-                const magnetics = document.querySelectorAll('.magnetic-wrap');
-                magnetics.forEach((magnetic) => {
+                document.querySelectorAll('.magnetic-wrap').forEach((magnetic) => {
                     magnetic.addEventListener('mousemove', function(e) {
                         const position = magnetic.getBoundingClientRect();
                         const x = e.clientX - position.left - position.width / 2;
@@ -862,8 +588,5 @@
             }
         });
     </script>
-    
-    <!-- OMNIDIMENSION WEB WIDGET SCRIPT -->
-    <script id="omnidimension-web-widget" async src="https://omnidim.io/web_widget.js?secret_key=9abbd03030fa0efb634866671ffcb0b2"></script>
 </body>
 </html>
